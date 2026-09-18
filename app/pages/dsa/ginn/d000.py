@@ -15,13 +15,13 @@ file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","gi
 from  mod.dsa.apps.app_param_test import app_param
 from dash import callback  
  
-neld_path_inits =['Kasthuri15_resize_450000_test']
-data_studied = 'test'  
+neld_path_inits =['neuropil_test']
+data_studied = 'None'  
 model_sufix = 'DNN_3' 
 path_train= None
 path_file= None
 path_file_sub=None
-path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'Kasthuri15_resize_450000', 'path_files.pkl'])
+path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'neuropil', 'path_files.pkl'])
 pinn_dir_data='None'
 neld_data=None
 index=0
