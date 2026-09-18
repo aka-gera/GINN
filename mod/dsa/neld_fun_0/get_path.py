@@ -951,7 +951,7 @@ class get_files(get_name,get_param):
         path_file=loaded_dict['path_file']
         path_train=loaded_dict['path_train']
         neld_data=loaded_dict['neld_data']
-        file_path_org=loaded_dict['file_path_org']
+        # file_path_org=loaded_dict['file_path_org']
         obj_org_path=loaded_dict['obj_org_path']
 
         data_shaft_path=path_file[path_train['data_shaft_path']]
@@ -1070,8 +1070,8 @@ class get_files(get_name,get_param):
         # print('self.obj_org_path, self.neld_name',self.obj_org_path, self.file_path_org_init,self.neld_name)
         self.neld_path_original =self.neld_path_original_mm = os.path.join(self.file_path_org_init, self.neld_name, data_org) 
         self.neld_path_original_new = os.path.join(self.obj_org_path, self.neld_name, data_org)   
-        print('[[[[[[[[[[00]]]]]]]]]]',self.model_sufix_dic)
-        print('[[[[[[[[[[[[[[[---------obj--------]]]]]]]]]]]]]]]',self.obj_org_path,self.model_sufix ,self.data_studied, self.neld_name, self.neld_data['data_studied'])    
+        # print('[[[[[[[[[[00]]]]]]]]]]',self.model_sufix_dic)
+        # print('[[[[[[[[[[[[[[[---------obj--------]]]]]]]]]]]]]]]',self.obj_org_path,self.model_sufix ,self.data_studied, self.neld_name, self.neld_data['data_studied'])    
 
         self.neld_path_org_new = os.path.join(self.obj_org_path,self.model_sufix ,self.data_studied, self.neld_name, 'data')    
         # self.neld_path_org_new = os.path.join(self.obj_org_path, self.neld_name, 'data')   
