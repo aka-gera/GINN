@@ -75,7 +75,8 @@ def update_output(*args):
 out, inp, st, prevent = mapp.param_upload_dropdown_all(drop_name)
 @callback(*out,*inp,*st,prevent_initial_call=prevent)
 def update_nam_gen_dropdown(n): 
-    return mapp.update_nam_gen_dropdown(drop_name,path_file_dir=path_file_dir,)
+    return mapp.update_nam_gen_dropdown(drop_name,path_file_dir=path_file_dir,
+                                            file_path_org=file_path_org,)
 
 
 out, inp, st, prevent = mapp.param_create_parameter_dropdowns_all(drop_name)
