@@ -86,8 +86,8 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         self.obj_org_path=dict_param.get('obj_org_path',None)
         self.file_path_org,self.file_path_data=file_path_org,file_path_data
 
-        path_diroi=os.path.join(file_path_org, 'data') 
-        true_keys=np.loadtxt(os.path.join(path_diroi, 'true_keys.txt'),dtype=str,ndmin=1)
+        # path_diroi=os.path.join(file_path_org, 'data') 
+        # true_keys=np.loadtxt(os.path.join(path_diroi, 'true_keys.txt'),dtype=str,ndmin=1)
 
         # if nam_gen_show is None: 
         #     file_path_org=file_path_org or os.path.join(os.getcwd(),'files') 
