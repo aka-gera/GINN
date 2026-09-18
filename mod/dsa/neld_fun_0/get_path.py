@@ -889,60 +889,7 @@ class get_files(get_name,get_param):
                  neld_path_true=neld_path_true,
                  file_path_org=file_path_org,
                 file_path=file_path,
-                file_path_feat=file_path_feat,)
-
-    def update_nam_gen_dropdown(self,name=None,file_path_org=None,obj_org_path=None,):  
-        file_path_org=file_path_org if file_path_org is not None else self.file_path_org
-        obj_org_path=obj_org_path if obj_org_path is not None else self.obj_org_path
-        neld_path_org_new=os.path.join(file_path_org,'data_initial')
-        nam_gen_show=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))]
-        # nam_gen_show = [
-        #     x
-        #     for x in os.listdir(self.file_path_data)
-        #     if x != ".DS_Store"
-        #     and os.path.isdir(
-        #         os.path.join(self.file_path_data, x)
-        #     )
-        # ]
-        print(f'[[[[[[[[[[[[[[]]]]]]]]]]]]]]{obj_org_path}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',nam_gen_show)
-        file_path_model=  os.path.join(file_path_org,'model')
-        path_heads_show=[mm for mm in os.listdir(file_path_model) if mm not in ['.DS_Store',] 
-                        and os.path.isdir(os.path.join(file_path_model, mm))]
-        # file_path_model_data__=  os.path.dirname(self.file_path_model_data)
-        # actions_show=[mm for mm in os.listdir(file_path_model_data__) if mm not in ['.DS_Store',] 
-        #                 and os.path.isdir(os.path.join(file_path_model_data__, mm))]
-        # file_path_org=  os.path.join(os.getcwd(),'files')
-        if not os.path.exists(obj_org_path):
-            obj_org_path=os.path.join(os.getcwd(),'files','data_initial',os.path.basename(obj_org_path))
-        neld_path_org_new = obj_org_path
-        # dnn_mode=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))]
-        import numpy as np
-        path_dir=os.path.join(file_path_org, 'data','pinn_dir_data_all.txt') 
-        if os.path.exists(path_dir):
-            dnn_mode=[mm for mm in list(np.loadtxt(path_dir,dtype=str)) if mm not in (None,'None')]
-
-        print(f'[[[[[[[[[[[[[[]]]]]]]]]]]]]]{dnn_mode}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',)
-
-        neld_path_org_new = os.path.join(obj_org_path,self.model_sufix )
-        actions_shows=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))]   
-        if name in ['prediction','figure','generation']:
-            actions_show = sorted(actions_shows, key=lambda x: x != 'test')
-        elif name in ['training']:
-            actions_show = sorted(actions_shows, key=lambda x: x != 'train')
-        
-
-        neld_path_org_new = os.path.join(obj_org_path,self.model_sufix ,self.data_studied, )      
-        root=self.neld_data['neld_names']#[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))]  
-    
- 
-        return dict(path_head=path_heads_show,
-                    nam_gen=nam_gen_show,
-                    dnn_mode=dnn_mode,
-                    action=actions_show,
-                    root=root,
-                    ) 
-
-
+                file_path_feat=file_path_feat,) 
 
     def update_nam_gen_dropdown(self,name=None,file_path_org=None,obj_org_path=None,path_file_dir=None): 
  
