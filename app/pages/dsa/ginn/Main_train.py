@@ -13,6 +13,7 @@ dash.register_page(
     path="/dsa/dsa-ginn-data/dsa-train",
     order=2
 )
+file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",) 
 path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'neuropil', 'path_files.pkl']) 
 path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.neuropil'} 
 tname='ginn'
@@ -38,7 +39,8 @@ type='train'
 out, inp, st, prevent = dsa_page.param_upload_dropdown_all(drop_name)
 @callback(*out,*inp,*st,prevent_initial_call=prevent)
 def update_nam_gen_dropdown(n): 
-    return dsa_page.update_nam_gen_dropdown(drop_name,path_file_dir=path_file_dir,)
+    return dsa_page.update_nam_gen_dropdown(drop_name,path_file_dir=path_file_dir,
+                                            file_path_org=file_path_org,)
 
 
 out, inp, st, prevent = dsa_page.param_create_parameter_dropdowns_all(drop_name)
