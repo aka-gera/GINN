@@ -509,7 +509,7 @@ class model_pred( hntt.train_test_tf,dendrite_manipulate,pinn_data_adj):
                 drop_name='prediction',
                 tname=tname,
                 path_dict=path_dict,
-                                path_file_dir=mmm, 
+                                path_file_dir=path_file_dir_text, 
                 )
 
             page_dir_txt=os.path.join(page_dir_gen,f'{self.gname}-GEN').replace('_','-').replace('\\','/').lower()  
@@ -527,7 +527,7 @@ class model_pred( hntt.train_test_tf,dendrite_manipulate,pinn_data_adj):
                 drop_name='generation',
                 tname=tname,
                 path_dict=path_dict,
-                                path_file_dir=mmm, 
+                                path_file_dir=path_file_dir_text, 
                 )
             page_dir_txt=os.path.join(page_dir_gen,f'{self.gname}-TRAIN').replace('_','-').replace('\\','/').lower()  
             dash_pages_path = str(Path(self.dash_pages_path) / "Main_train.py").replace('\\','/')
@@ -544,7 +544,7 @@ class model_pred( hntt.train_test_tf,dendrite_manipulate,pinn_data_adj):
                 drop_name='training',
                 tname=tname,
                 path_dict=path_dict,
-                                path_file_dir=mmm, 
+                                path_file_dir=path_file_dir_text, 
                 )
             # page_name=self.model_sufix_dic['path_heads_dic'][self.model_type] #safe_id(self.neld_path_inits[index])
             # page_name= self.model_sufix_dic['path_heads_dic_sec'].get(self.model_type,self.model_type)
