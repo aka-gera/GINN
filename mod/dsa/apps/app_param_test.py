@@ -104,9 +104,11 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
 '''
 
 
+        path_diroi=os.path.join(file_path_org, 'data') 
         path_file_dir=Path(path_file_dir)
         if not os.path.exists(path_file_dir):
             path_file_dir=os.path.join(os.getcwd(),'files','dsa','ginn','data','meshes','path_files.pkl')
+            path_diroi=os.path.join(os.getcwd(),'files','dsa','ginn','data',)
         with open(path_file_dir, "rb") as f: 
             loaded_dict = pickle.load(f) 
         paraws=loaded_dict['paraws']
@@ -125,7 +127,6 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         self.obj_org_path=params.get('obj_org_path',None)
         self.file_path_org,self.file_path_data=file_path_org,file_path_data
 
-        path_diroi=os.path.join(file_path_org, 'data') 
         true_keys=np.loadtxt(os.path.join(path_diroi, 'true_keys.txt'),dtype=str,ndmin=1)
 
 
