@@ -106,7 +106,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
 
         path_file_dir=Path(path_file_dir)
         if not os.path.exists(path_file_dir):
-            path_file_dir=os.path.join(os.getcwd(),'files','dsa','dinn','data_initial','meshes')
+            path_file_dir=os.path.join(os.getcwd(),'files','dsa','ginn','data_initial','meshes')
         with open(path_file_dir, "rb") as f: 
             loaded_dict = pickle.load(f) 
         paraws=loaded_dict['paraws']
