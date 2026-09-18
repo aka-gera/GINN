@@ -403,8 +403,11 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
 
                  ):
         print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir))
-        if path_file_dir is not None:
-            path_file_dir=Path(path_file_dir)
+
+        if not os.path.exists(path_file_dir):
+            path_file_dir=os.path.join(os.getcwd(),'files','dsa','ginn','data','meshes','path_files.pkl')
+            path_diroi=os.path.join(os.getcwd(),'files','dsa','ginn','data',)
+        if path_file_dir is not None: 
             with open(path_file_dir, "rb") as f: 
                 loaded_dict = pickle.load(f) 
             path_file_dir=loaded_dict['path_file_dir']
