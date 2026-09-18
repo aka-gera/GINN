@@ -3,9 +3,9 @@
 import time
 import numpy as np
 import os
-import dend_fun_0.curvature as cuHP 
-from dend_fun_0.obj_get import  Obj_to_coord
-from dend_fun_0.get_path import  get_files
+import mod.dsa.dend_fun_0.curvature as cuHP 
+from mod.dsa.dend_fun_0.obj_get import  Obj_to_coord
+from mod.dsa.dend_fun_0.get_path import  get_files
 import trimesh
 
 

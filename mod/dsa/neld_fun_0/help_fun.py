@@ -271,6 +271,83 @@ def app_dict_param(param,nam_gen=None,navbar=None,):
 
 
 
+def app_get_data_all(param,nam_gen=None,gdas=None):
+    from mod.dsa.neld_fun_0.main_0_help import get_data_all
+    nam_gen=nam_gen if nam_gen is not None else param['nam_gen']['param'] 
+    action=param["action"]["param"]
+    file_path_org=param['file_path_org']['param']
+    file_path_data=param['file_path_data']['param']
+    path_heads_show=param['path_heads_show']['param']
+    path_dirs_show=param['path_dirs_show']['param'] 
+    dynaParam=param['dyna param']['param']
+    neld_names_chld={}
+    action='train'
+    nam=f'{nam_gen}_{action}' 
+    if gdas is None or nam not in gdas.neld_data: 
+        obj_org_path= os.path.join(file_path_org,'data_initial',nam_gen)
+        # nbr_train_sample=dynaParam.get('nbr_train_sample',10)
+        # obj_list=np.arange(nbr_train_sample) 
+        neld_names = [
+            mm for mm in os.listdir(obj_org_path) 
+            if mm not in ['.DS_Store'] and os.path.isdir(os.path.join(obj_org_path, mm))
+        ]
+        # neld_names = [f'd{str(i).zfill(3)}' for i in obj_list]  
+        neld_last = [f'{de}_'  for de in neld_names]
+        neld_first= [ f'{de}' for de in neld_names] 
+        
+        neld_path_inits=[nam for _ in range(len(neld_names))]
+        neld_names_chld[nam]= dict(   
+                        neld_names=neld_names , 
+                        obj_org_path=obj_org_path,
+                        neld_last=neld_last ,
+                        neld_first=neld_first ,
+                        neld_path_inits=neld_path_inits,  
+                        data_studied=action,
+                        )   
+    action='test' 
+    nam=f'{nam_gen}_{action}'
+
+    if gdas is None or nam not in gdas.neld_data:
+        # path_heads_show.extend([f'rnn_KAL___{nam_gen}',f'tfm_KAL___{nam_gen}'])
+        # obj_list=np.arange(5) 
+ 
+        # nbr_train_sample=dynaParam.get('nbr_train_sample',10)
+        # obj_list=np.arange(nbr_train_sample) 
+        neld_names = [
+            mm for mm in os.listdir(obj_org_path) 
+            if mm not in ['.DS_Store'] and os.path.isdir(os.path.join(obj_org_path, mm))
+        ] 
+        neld_last = [f'{de}_'  for de in neld_names]
+        neld_first= [ f'{de}' for de in neld_names]  
+
+        neld_path_inits=[nam for _ in range(len(neld_names))]
+        neld_names_chld[nam]= dict(  
+                        # neld_namess=neld_namess ,
+                        neld_names=neld_names , 
+                        obj_org_path=obj_org_path,
+                        neld_last=neld_last ,
+                        neld_first=neld_first ,
+                        neld_path_inits=neld_path_inits,  
+                        data_studied=action,
+        name_spine_id='sp',
+        name_head_id='hsp',
+        name_neck_id='nsp',
+        name_shaft_id='shsp',
+                        
+                        )  
+    if len(neld_names_chld)>0:
+        neld_data=None if gdas is  None else gdas.neld_data 
+        gdas=get_data_all(names_dic=neld_names_chld,
+                        neld_data= neld_data ,
+                        file_path_data=file_path_data,
+                        cpath=[nam_gen, action],)   
+
+    return gdas
+
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 # 
 import numpy as np   
 import os
-from dend_fun_0.help_plotly import plotly_mesh,plotly_analysis,plotly_convergence_rate
+from mod.dsa.dend_fun_0.help_plotly import plotly_mesh,plotly_analysis,plotly_convergence_rate
 import trimesh
 from tqdm import tqdm 
 

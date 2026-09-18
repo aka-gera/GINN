@@ -20,12 +20,12 @@ import pickle
 from sklearn.metrics import roc_curve, auc
 import pickle
 
-import dend_fun_0.curvature as cu  
-import dend_fun_0.help_funn as hff
-from dend_fun_0.get_path import get_files ,safe_id ,get_name
-from dend_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
-from dend_fun_0.help_save_iou import iou_train
-from dend_fun_0.density import get_chi
+import mod.dsa.dend_fun_0.curvature as cu  
+import mod.dsa.dend_fun_0.help_funn as hff
+from mod.dsa.dend_fun_0.get_path import get_files ,safe_id ,get_name
+from mod.dsa.dend_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
+from mod.dsa.dend_fun_0.help_save_iou import iou_train
+from mod.dsa.dend_fun_0.density import get_chi
 
 
 def log_ratio(values, eps=1e-12):

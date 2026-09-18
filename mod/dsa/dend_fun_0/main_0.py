@@ -13,12 +13,12 @@ import numpy as np
 import time
 import sys,os
 file_path_org=os.getcwd()   
-from dend_fun_0.help_smooth import get_smooth   
+from mod.dsa.dend_fun_0.help_smooth import get_smooth   
 DTYPE='float32'  
    
-from dend_fun_0.help_dendrite_pred import dendrite_pred 
-from dend_fun_0.get_path import get_name,get_configs,get_path_train,get_data_mode  
-from dend_fun_0.side_bar import  dnn_page
+from mod.dsa.dend_fun_0.help_dendrite_pred import dendrite_pred 
+from mod.dsa.dend_fun_0.get_path import get_name,get_configs,get_path_train,get_data_mode  
+from mod.dsa.dend_fun_0.side_bar import  dnn_page
 
 file_path_parent=os.path.dirname(file_path_org)
 file_path_parent=os.path.join(file_path_parent,'meshes','meshes')

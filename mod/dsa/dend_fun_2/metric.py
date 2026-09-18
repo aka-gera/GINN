@@ -2,10 +2,10 @@
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA 
-from dend_fun_0.curvature import curv_mesh as curv_mesh
-import dend_fun_0.help_fun as hf 
-import dend_fun_0.geometry as geo 
-from dend_fun_0.help_funn import dendrite,curv_mesh, cluster_class,label_cluster,dendrite_io,mmean
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh
+import mod.dsa.dend_fun_0.help_fun as hf 
+import mod.dsa.dend_fun_0.geometry as geo 
+from mod.dsa.dend_fun_0.help_funn import dendrite,curv_mesh, cluster_class,label_cluster,dendrite_io,mmean
 from sklearn.neighbors import KDTree 
 import numpy as np 
 from scipy.spatial import  distance_matrix
@@ -19,7 +19,7 @@ import numpy as np
 from scipy.interpolate import splprep, splev
 
 
-from dend_fun_0.curvature import curv_mesh as curv_mesh
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh
  
 # from vedo import Points
 

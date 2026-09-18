@@ -4,7 +4,7 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from dend_fun_0.help_app import DSAPage
+from mod.dsa.dend_fun_0.help_app import DSAPage
 
 dash.register_page(
     __name__,

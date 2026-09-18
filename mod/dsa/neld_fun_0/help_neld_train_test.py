@@ -38,7 +38,7 @@ import mod.dsa.neld_fun_0.help_funn as hff
 
 from mod.dsa.neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
  
-from dend_fun_0.help_dendrite_pred import train_test_tf as train_test_tfold
+from mod.dsa.dend_fun_0.help_dendrite_pred import train_test_tf as train_test_tfold
 def loss_fn(output, target):
     return np.mean(np.square(output - target))
 
@@ -526,7 +526,7 @@ class train_test_tf(get_files,get_name,train_test_tfold):
                         path_dict=None,
                         **kward,
                         ): 
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
 
 
 

@@ -1,6 +1,6 @@
 import numpy as np 
 # from IPython.display import Image 
-from dend_fun_0.curvature import curv_mesh as curv_mesh
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh
 from tqdm import tqdm  
 from sklearn.cluster import KMeans
 from sklearn.impute import SimpleImputer

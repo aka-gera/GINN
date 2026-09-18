@@ -7,9 +7,9 @@ file_path_org=os.getcwd()
 sys.path.append(os.path.abspath(file_path_org))
   
 # from app_run import app_run_param,algorithm 
-from dend_fun_0.obj_get import parse_obj_upload
-from  dend_fun_0.main_0 import app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param,get_navs_bar
-from dend_fun_0.help_funn import remove_directory
+from mod.dsa.dend_fun_0.obj_get import parse_obj_upload
+from  mod.dsa.dend_fun_0.main_0 import app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param,get_navs_bar
+from mod.dsa.dend_fun_0.help_funn import remove_directory
 import threading
 import subprocess 
 import signal 
@@ -140,12 +140,12 @@ def restart_appsx():
 import os
 import dash
 from dash import html, Input, Output, State, callback, ctx, ALL
-from dend_fun_0.obj_get import parse_obj_upload
-from dend_fun_0.main_0 import (
+from mod.dsa.dend_fun_0.obj_get import parse_obj_upload
+from mod.dsa.dend_fun_0.main_0 import (
     app_run_param, algorithm, algorithm_param,
     get_data_all, get_dict_param, get_navs_bar
 )
-from dend_fun_0.help_funn import remove_directory
+from mod.dsa.dend_fun_0.help_funn import remove_directory
 import numpy as np
 
 

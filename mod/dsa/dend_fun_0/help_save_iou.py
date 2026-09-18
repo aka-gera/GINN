@@ -1,8 +1,8 @@
 import os
 import numpy as np
-import dend_fun_0.help_fun as hf
-from dend_fun_0.get_path import get_param,get_name
-from dend_fun_0.help_funn import get_color,format_array,loadtxt,loadtxt_count
+import mod.dsa.dend_fun_0.help_fun as hf
+from mod.dsa.dend_fun_0.get_path import get_param,get_name
+from mod.dsa.dend_fun_0.help_funn import get_color,format_array,loadtxt,loadtxt_count
 import pickle
 
 clor=get_color()

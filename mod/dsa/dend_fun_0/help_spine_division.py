@@ -1,12 +1,12 @@
-from dend_fun_0.curvature import curv_mesh as curv_mesh 
-from dend_fun_0.help_funn import dendrite,  cluster_class,label_cluster,Branch_division,get_intensity,Threshold_curv,Impute_intensity,remove_file,loadtxt,loadtxt_count
-from dend_fun_0.help_funn import mappings_vertices,clust_pca,dendrite_io,get_color,Refine_vertices_index,volume,closest_distances_group,find_min_max_no_cross,clust_segment
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh 
+from mod.dsa.dend_fun_0.help_funn import dendrite,  cluster_class,label_cluster,Branch_division,get_intensity,Threshold_curv,Impute_intensity,remove_file,loadtxt,loadtxt_count
+from mod.dsa.dend_fun_0.help_funn import mappings_vertices,clust_pca,dendrite_io,get_color,Refine_vertices_index,volume,closest_distances_group,find_min_max_no_cross,clust_segment
 import os
 import numpy as np 
-from dend_fun_2.metric import center_curvature
+from mod.dsa.dend_fun_2.metric import center_curvature
 clor=get_color()
 from sklearn.decomposition import PCA
-import dend_fun_0.help_fun as hf
+import mod.dsa.dend_fun_0.help_fun as hf
 
  
 

@@ -7,19 +7,19 @@ import pickle
 from dash import dcc, html, dash_table, Input, Output, State, callback 
 import dash_bootstrap_components as dbc
 import numpy as np
-import dend_fun_0.curvature as cu  
-from dend_fun_0.help_funn import get_color
-import dend_fun_0.help_fun as hf
+import mod.dsa.dend_fun_0.curvature as cu  
+from mod.dsa.dend_fun_0.help_funn import get_color
+import mod.dsa.dend_fun_0.help_fun as hf
 # import geometry as geo
 # import help_plotly as hpp
-import dend_fun_0.help_plotly as hp
-from dend_fun_0.help_plotly import aka_plot 
+import mod.dsa.dend_fun_0.help_plotly as hp
+from mod.dsa.dend_fun_0.help_plotly import aka_plot 
 # import density as den
 import plotly.graph_objects as go 
-import dend_fun_0.help_funn as hff
-from dend_fun_0.get_path import get_files,get_app_param ,safe_id 
-from dend_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
-from dend_fun_0.help_save_iou import iou_train
+import mod.dsa.dend_fun_0.help_funn as hff
+from mod.dsa.dend_fun_0.get_path import get_files,get_app_param ,safe_id 
+from mod.dsa.dend_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
+from mod.dsa.dend_fun_0.help_save_iou import iou_train
 import pandas as pd
 import pickle
 from sklearn.metrics import roc_curve, auc

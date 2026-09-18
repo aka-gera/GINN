@@ -95,7 +95,7 @@ def get_chi(pvals,eps = 1e-12):
 
 
 
-from dend_fun_0.help_fun import plotly_scatter,Lines_plot,plotly_lines
+from mod.dsa.dend_fun_0.help_fun import plotly_scatter,Lines_plot,plotly_lines
  
 import plotly.graph_objects as go 
 from scipy.ndimage import gaussian_filter 
@@ -269,7 +269,7 @@ class  get_cylinder:
         if tf_ripley:
 
             
-            from dend_fun_0.ripley import ripley_all,generate_points,ripley_all_save,monte_carlos_ripley,monte_carlos_area,monte_carlos_area_incremental,monte_carlos_ripley_incremental,monte_carlos_ripley_poisson_incremental,get_distance
+            from mod.dsa.dend_fun_0.ripley import ripley_all,generate_points,ripley_all_save,monte_carlos_ripley,monte_carlos_area,monte_carlos_area_incremental,monte_carlos_ripley_incremental,monte_carlos_ripley_poisson_incremental,get_distance
             import numpy as np
  
 
@@ -553,7 +553,7 @@ class  get_riplet:
     # if tf_ripley:
 
         
-        from dend_fun_0.ripley import ripley_all,generate_points,ripley_all_save,monte_carlos_ripley,monte_carlos_area,monte_carlos_area_incremental,monte_carlos_ripley_incremental,monte_carlos_ripley_poisson_incremental,get_distance
+        from mod.dsa.dend_fun_0.ripley import ripley_all,generate_points,ripley_all_save,monte_carlos_ripley,monte_carlos_area,monte_carlos_area_incremental,monte_carlos_ripley_incremental,monte_carlos_ripley_poisson_incremental,get_distance
         import numpy as np
 
 

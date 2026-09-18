@@ -32,7 +32,7 @@ from tqdm import tqdm
  
 # import torch
 import mod.dsa.neld_fun_0.help_neld_train_test as hntt
-from dend_fun_0.help_dendrite_manipulation import dendrite_manipulate
+from mod.dsa.dend_fun_0.help_dendrite_manipulation import dendrite_manipulate
 from neld_fun_0.help_neld_train_test_2 import pinn_data_adj
 import random
 np.random.seed(42)

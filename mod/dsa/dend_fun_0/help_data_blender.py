@@ -5,7 +5,7 @@ import logging
  
 import trimesh
 import numpy as np 
-from dend_fun_0.get_path import get_param 
+from mod.dsa.dend_fun_0.get_path import get_param 
 
 
 def export_vertex_group_to_obj(obj_name, vgroup_name, export_folder):

@@ -18,21 +18,21 @@ import trimesh
 import shap  
 from scipy.spatial import KDTree 
 
-from dend_fun_0.curvature import curv_mesh as curv_mesh
-import dend_fun_0.help_funn as hff   
-from dend_fun_0.help_graph import graph_iou,graph_cylinder_heatmap,get_iou_graph ,get_scatter_center
-from dend_fun_0.help_funn import get_intensity ,mappings_vertices
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh
+import mod.dsa.dend_fun_0.help_funn as hff   
+from mod.dsa.dend_fun_0.help_graph import graph_iou,graph_cylinder_heatmap,get_iou_graph ,get_scatter_center
+from mod.dsa.dend_fun_0.help_funn import get_intensity ,mappings_vertices
 DTYPE='float32' 
 DTYPE = tf.float32
   
-from dend_fun_0.get_path import assign_if_none,get_name,get_param,get_files,remove_directory,safe_id
-from dend_fun_0.side_bar import  get_text_dash_train,get_text_dash_all,get_text_dash_test,get_text_dash_dnn,get_text_dash_app,get_text_dash_main_2
+from mod.dsa.dend_fun_0.get_path import assign_if_none,get_name,get_param,get_files,remove_directory,safe_id
+from mod.dsa.dend_fun_0.side_bar import  get_text_dash_train,get_text_dash_all,get_text_dash_test,get_text_dash_dnn,get_text_dash_app,get_text_dash_main_2
 device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"  
 from tqdm import tqdm 
 
-from dend_fun_0.help_save_iou import iou_train  
-from dend_fun_0.help_dendrite_train_test import train_test_tf
-from dend_fun_0.help_dendrite_manipulation import dendrite_manipulate
+from mod.dsa.dend_fun_0.help_save_iou import iou_train  
+from mod.dsa.dend_fun_0.help_dendrite_train_test import train_test_tf
+from mod.dsa.dend_fun_0.help_dendrite_manipulation import dendrite_manipulate
 # import torch
 
 import random
@@ -239,7 +239,7 @@ class dendrite_pred(train_test_tf,dendrite_manipulate):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         time_start = time.time()
         dict_mesh_to_skeleton_finder_mesh=dict_mesh_to_skeleton_finder_mesh or self.dict_mesh_to_skeleton_finder_mesh
         path_train=path_train or self.path_train
@@ -546,7 +546,7 @@ class dendrite_pred(train_test_tf,dendrite_manipulate):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_graph_center ---- started')
         print('==========================================================')
         time_start = time.time()
@@ -614,7 +614,7 @@ class dendrite_pred(train_test_tf,dendrite_manipulate):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_cylinder_heatmap ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train
@@ -664,7 +664,7 @@ class dendrite_pred(train_test_tf,dendrite_manipulate):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_riplet ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train

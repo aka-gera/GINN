@@ -4,15 +4,15 @@ import os
 
 import pickle
 import numpy as np 
-from dend_fun_0.help_funn import get_color, loadtxt,loadtxt_count,closest_distances_group  
-import dend_fun_0.help_plotly as hp  
+from mod.dsa.dend_fun_0.help_funn import get_color, loadtxt,loadtxt_count,closest_distances_group  
+import mod.dsa.dend_fun_0.help_plotly as hp  
 import plotly.graph_objects as go 
-from dend_fun_0.help_save_iou import iou_train
-import dend_fun_0.help_fun as hf
+from mod.dsa.dend_fun_0.help_save_iou import iou_train
+import mod.dsa.dend_fun_0.help_fun as hf
 clor=get_color()
-from dend_fun_0.help_pinn_data_fun import get_cluster_length_using_center_curve
+from mod.dsa.dend_fun_0.help_pinn_data_fun import get_cluster_length_using_center_curve
 
-import dend_fun_0.density as den
+import mod.dsa.dend_fun_0.density as den
 
 def get_scatter_center(self,spine_path,shaft_vertices_center_path,vertices_00,save_data=True):
     paath=os.path.join(spine_path,self.txt_spine_count)
@@ -233,7 +233,7 @@ def pca_extremities(points):
     return pmin, pmax
 
 import trimesh
-from dend_fun_0.help_funn import mappings_vertices
+from mod.dsa.dend_fun_0.help_funn import mappings_vertices
 from scipy.spatial import KDTree
 
 class graph_cylinder_heatmap:
@@ -256,7 +256,7 @@ class graph_cylinder_heatmap:
         target_number_of_triangles=max(5000,int(len(mesh_shaft.vertices)*2/5))
         mesh_shaft=trimesh.load_mesh(os.path.join(spine_path,'mesh_shaft_wrap.obj'),process=False)
         if len(mesh_shaft.vertices)>target_number_of_triangles:
-            from dend_fun_2.help_pinn_data_fun import mesh_resize
+            from mod.dsa.dend_fun_2.help_pinn_data_fun import mesh_resize
             mrs=mesh_resize(mesh_shaft.vertices,mesh_shaft.faces,target_number_of_triangles=target_number_of_triangles, )
             mesh_shaft=mrs.mesh
                 

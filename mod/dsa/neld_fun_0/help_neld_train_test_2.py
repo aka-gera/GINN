@@ -9,10 +9,10 @@ import time
 
 
 from mod.dsa.neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
-from dend_fun_0.help_graph import graph_iou,graph_cylinder_heatmap,get_iou_graph ,get_scatter_center
-from dend_fun_0.help_funn import get_intensity ,mappings_vertices
+from mod.dsa.dend_fun_0.help_graph import graph_iou,graph_cylinder_heatmap,get_iou_graph ,get_scatter_center
+from mod.dsa.dend_fun_0.help_funn import get_intensity ,mappings_vertices
 
-from dend_fun_0.help_save_iou import iou_train  
+from mod.dsa.dend_fun_0.help_save_iou import iou_train  
 
 import pickle 
 
@@ -219,7 +219,7 @@ class pinn_data_adj(get_files):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         time_start = time.time()
         dict_mesh_to_skeleton_finder_mesh=dict_mesh_to_skeleton_finder_mesh or self.dict_mesh_to_skeleton_finder_mesh
         path_train=path_train or self.path_train
@@ -525,7 +525,7 @@ class pinn_data_adj(get_files):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_graph_center ---- started')
         print('==========================================================')
         time_start = time.time()
@@ -592,7 +592,7 @@ class pinn_data_adj(get_files):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_cylinder_heatmap ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train
@@ -642,7 +642,7 @@ class pinn_data_adj(get_files):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic
-        from dend_fun_2.help_pinn_data_fun import pinn_data 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_riplet ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train

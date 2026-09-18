@@ -3,7 +3,7 @@
 import sys
 import os
 import numpy as np
-import dend_fun_0.help_funn as hff  
+import mod.dsa.dend_fun_0.help_funn as hff  
 from scipy.interpolate import splprep, splev 
 
 from scipy.spatial import  distance_matrix
@@ -11,11 +11,11 @@ import networkx as nx
 
 from sklearn.neighbors import KDTree 
 
-from dend_fun_0.curvature import curv_mesh as curv_mesh
+from mod.dsa.dend_fun_0.curvature import curv_mesh as curv_mesh
 
-from dend_fun_0.help_funn import   cluster_class,label_cluster,Branch_division,get_intensity,Threshold_curv,Impute_intensity,remove_file,loadtxt,loadtxt_count
-from dend_fun_0.help_funn import mappings_vertices,clust_pca,dendrite_io,get_color,Refine_vertices_index, volume,closest_distances_group,find_min_max_no_cross
-from dend_fun_0.obj_get import get_obj_filenames_with_indices_2,Obj_to_vertices
+from mod.dsa.dend_fun_0.help_funn import   cluster_class,label_cluster,Branch_division,get_intensity,Threshold_curv,Impute_intensity,remove_file,loadtxt,loadtxt_count
+from mod.dsa.dend_fun_0.help_funn import mappings_vertices,clust_pca,dendrite_io,get_color,Refine_vertices_index, volume,closest_distances_group,find_min_max_no_cross
+from mod.dsa.dend_fun_0.obj_get import get_obj_filenames_with_indices_2,Obj_to_vertices
 
 
 def get_model(base_features ,vcv_length, model_sufix, add_param=None ): 
@@ -362,7 +362,7 @@ def get_kmean(dist_norm,n_clusters=4,kmean_max_iter=300):
 
 
 import pickle
-from dend_fun_0.get_path import get_name,get_param
+from mod.dsa.dend_fun_0.get_path import get_name,get_param
 
 
 class pinn_data(get_name,get_param):

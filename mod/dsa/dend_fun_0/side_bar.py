@@ -236,7 +236,7 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from dend_fun_0.help_app import DSAPage
+from mod.dsa.dend_fun_0.help_app import DSAPage
 
 dash.register_page(
     __name__,
@@ -330,7 +330,7 @@ def get_text_dash_dnn(page_name,page_dir_txt,dash_pages_path,
 
 import os, sys ,dash 
 sys.path.append(os.getcwd() ) 
-from dend_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
+from mod.dsa.dend_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
 
 
 page_dir= '/{page_dir_txt}' 
@@ -455,7 +455,7 @@ sys.path.append(os.path.abspath(os.getcwd()))
 import dash_bootstrap_components as dbc
 from dash import Dash, html
 import webbrowser, threading
-from dend_fun_0.side_bar import header_navbar
+from mod.dsa.dend_fun_0.side_bar import header_navbar
 
 forbidden_page={forbidden_page}
 forbidden_endswith='{forbidden_endswith}'
@@ -809,7 +809,7 @@ def get_text_dash_test(user_input,file_path_org,dend_path_inits,   dend_name, de
 import os, sys ,dash 
 file_path_org=os.getcwd()
 sys.path.append(file_path_org ) 
-from  dend_fun_0.app_param_test import app_param
+from  mod.dsa.dend_fun_0.app_param_test import app_param
 from dash import callback  
 
 dend_names = ['{dend_name}']
@@ -884,7 +884,7 @@ def get_text_dash_all(page_name,page_dir_txt,dash_pages_path,
 
 import os, sys ,dash 
 sys.path.append(os.getcwd() ) 
-from  dend_fun_0.side_bar import layout_1
+from  mod.dsa.dend_fun_0.side_bar import layout_1
 
 
 page_dir= '/{page_dir_txt}' 

@@ -20,14 +20,14 @@ np.random.seed(42)
 random.seed(42) 
 from tqdm import tqdm 
 
-from dend_fun_0.help_save_iou import iou_train 
-from dend_fun_0.help_pinn_data_fun import pinn_data 
-from dend_fun_2.help_pinn_data_fun import pinn_data 
-import dend_fun_0.help_funn as hff   
-from dend_fun_0.help_funn import get_intensity ,mappings_vertices,pca_projector
+from mod.dsa.dend_fun_0.help_save_iou import iou_train 
+from mod.dsa.dend_fun_0.help_pinn_data_fun import pinn_data 
+from mod.dsa.dend_fun_2.help_pinn_data_fun import pinn_data 
+import mod.dsa.dend_fun_0.help_funn as hff   
+from mod.dsa.dend_fun_0.help_funn import get_intensity ,mappings_vertices,pca_projector
 
 
-from dend_fun_0.get_path import assign_if_none,get_name,get_param,get_files
+from mod.dsa.dend_fun_0.get_path import assign_if_none,get_name,get_param,get_files
 
 
   
@@ -172,7 +172,7 @@ class dendrite_manipulate(get_files,get_name):
                     param_neld_name=None,
                     ):   
         param_dic =param_dic if param_dic is not None else self.param_dic
-        from dend_fun_0.get_wrap import get_wrap ,get_wrap_o3d
+        from mod.dsa.dend_fun_0.get_wrap import get_wrap ,get_wrap_o3d
         print('get_wrap  1 ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train
@@ -256,8 +256,8 @@ class dendrite_manipulate(get_files,get_name):
                     old_path=None,
                     ):   
         param_dic =param_dic if param_dic is not None else self.param_dic
-        from dend_fun_2.help_pinn_data_fun import def_mesh_to_skeleton_finder
-        from dend_fun_0.help_funn import order_points_along_pca,project_vertices_onto_skeleton
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import def_mesh_to_skeleton_finder
+        from mod.dsa.dend_fun_0.help_funn import order_points_along_pca,project_vertices_onto_skeleton
         from scipy.spatial import cKDTree
         print(f' get_skeleton  ---- started') 
         time_start = time.time()
@@ -552,8 +552,8 @@ class dendrite_manipulate(get_files,get_name):
                     old_path=None,
                     ):    
         param_dic = param_dic if param_dic is not None else self.param_dic
-        import dend_fun_0.curvature as cuHP 
-        from dend_fun_2.help_pinn_data_fun import smooth_curvature
+        import mod.dsa.dend_fun_0.curvature as cuHP 
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import smooth_curvature
         print(' get_smooth  ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train
@@ -715,7 +715,7 @@ class dendrite_manipulate(get_files,get_name):
                     drop_dic_name=None,
                     old_path=None,
                     ):    
-        from dend_fun_2.help_pinn_data_fun import mesh_resize
+        from mod.dsa.dend_fun_2.help_pinn_data_fun import mesh_resize
         if target_number_of_triangles_faction is None:
             target_number_of_triangles_faction=int(np.random.uniform(0.9, 1.1)*1000)
         print(' get_resize  ---- started')
@@ -1027,7 +1027,7 @@ class dendrite_manipulate(get_files,get_name):
                     old_path=None,
                     ):   
          
-        from dend_fun_0.help_funn import remove_directory
+        from mod.dsa.dend_fun_0.help_funn import remove_directory
         print('   ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train

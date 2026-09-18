@@ -4,7 +4,7 @@ import numpy as np
 
  
 import trimesh 
-from dend_fun_0.obj_get import  Obj_to_coord
+from mod.dsa.dend_fun_0.obj_get import  Obj_to_coord
 
 
 
@@ -145,7 +145,7 @@ def get_alpha_wrap(vertices, faces,
                     target_triangles=8000, 
                     alpha_fraction=1.02,
                     offset_fraction=1.00):
-    from dend_fun_2.help_pinn_data_fun import mesh_resize
+    from mod.dsa.dend_fun_2.help_pinn_data_fun import mesh_resize
     import  pymeshlab 
 
     # Build mesh
