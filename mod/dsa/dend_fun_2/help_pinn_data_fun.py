@@ -61,7 +61,7 @@ class mesh_resize():
         self.faces=faces
         mesh = trimesh.Trimesh(vertices=vertices, faces=faces)
         
-		import open3d as o3d 
+        import open3d as o3d 
 
         o3d_mesh = o3d.geometry.TriangleMesh()
         o3d_mesh.vertices = o3d.utility.Vector3dVector(mesh.vertices)
@@ -182,7 +182,7 @@ class smooth_curvature:
 
     def __init__(self, mesh, iterations=None, sigma=3, radius=None):
 		
-		import open3d as o3d 
+        import open3d as o3d 
         # Convert to Open3D
         o3d_mesh = o3d.geometry.TriangleMesh()
         o3d_mesh.vertices = o3d.utility.Vector3dVector(mesh.vertices)
