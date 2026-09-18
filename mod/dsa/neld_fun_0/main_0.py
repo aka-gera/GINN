@@ -101,10 +101,11 @@ def algorithm_param(file_path_org,
     #     file_path_org=file_path_org or safe_path_join(os.getcwd(),'files')
     #     print('[[[[[---------file_path_data---------]]]]]',file_path_data)
     #     file_path_data=file_path_data if file_path_data is not None else safe_path_join(file_path_org,'data_initial')
-        nam_gen_show=[mm for mm in os.listdir(os.path.join(file_path_org,'data_initial')) if mm not in ['.DS_Store',]]
-    #     print('[[[[[---------file_path_data---------]]]]]',file_path_data,nam_gen_show)
-    #     nam_gen_show=['model_0',] if len(nam_gen_show)==0 else nam_gen_show 
-    # print('[[[[[[[[[[[-------]]]]]]]]]]result]',nam_gen_show)
+        pathi=os.path.join(file_path_org,'data_initial')
+        if os.path.exists(pathi):
+            nam_gen_show=[mm for mm in os.listdir(pathi) if mm not in ['.DS_Store',]]
+        else:
+            nam_gen_show=['meshes',] 
   
     smooth_tf=True
     smooth_tf=False
