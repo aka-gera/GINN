@@ -920,8 +920,8 @@ class get_files(get_name,get_param):
         neld_path_org_new = os.path.join(file_path_org,'data',os.path.basename(obj_org_path)) 
         actions_shows=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))]
         # neld_path_org_new = os.path.join(obj_org_path,self.model_sufix )
-        neld_path_org_new=os.path.dirname(os.path.dirname(data_shaft_path))
-        dnn_mode=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))] 
+        # neld_path_org_new=os.path.dirname(os.path.dirname(data_shaft_path))
+        # dnn_mode=[mm for mm in os.listdir(neld_path_org_new) if mm not in ['.DS_Store',] and os.path.isdir(os.path.join(neld_path_org_new, mm))] 
         import numpy as np
         pathy=os.path.join(file_path_org, 'data','model_sufix_all.txt') 
         if os.path.exists(pathy):
