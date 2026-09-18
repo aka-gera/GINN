@@ -14,7 +14,7 @@ dash.register_page(
     order=0
 )
 
-path_file_dir=os.path.join(os.getcwd(),*['..', 'apps', 'files', 'dsa', 'ginn', 'data', 'Kasthuri15_resize_450000', 'path_files.pkl']) 
+path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'Kasthuri15_resize_450000', 'path_files.pkl'])
 path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.Kasthuri15_resize_450000'} 
 drop_name='generation'
 path_heads_show= ['dnn_GINN__SM00000_LOC_AUG']
