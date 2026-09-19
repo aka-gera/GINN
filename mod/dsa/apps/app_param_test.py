@@ -220,8 +220,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         if path_file_dir is not None:
             path_file_dir=Path(path_file_dir)
             with open(path_file_dir, "rb") as f: 
-                loaded_dict = pickle.load(f) 
-            path_file_dir=loaded_dict['path_file_dir']
+                loaded_dict = pickle.load(f)  
             path_train=loaded_dict['path_train']
             self.path_file_init=path_file=loaded_dict['path_file']
             self.path_file_sub_init=loaded_dict['path_file_sub']
@@ -409,8 +408,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             path_diroi=os.path.join(os.getcwd(),'files','dsa','ginn','data',)
         if path_file_dir is not None: 
             with open(path_file_dir, "rb") as f: 
-                loaded_dict = pickle.load(f) 
-            path_file_dir=loaded_dict['path_file_dir']
+                loaded_dict = pickle.load(f)  
             path_train=loaded_dict['path_train']
             self.path_file_init=path_file=loaded_dict['path_file']
             self.path_file_sub_init=loaded_dict['path_file_sub']
