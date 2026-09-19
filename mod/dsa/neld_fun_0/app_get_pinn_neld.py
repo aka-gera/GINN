@@ -795,6 +795,9 @@ class class_data():
     # def Get_output(self, path_head,model_suf,path,mode,  width, height ,templ,inbin,ndex=None,get_return=True,hide_button_tf=True): 
     def Get_output(self): 
         (nam_gen,path_head,action,model_suf,path,root1,mode,intensity_type,nbin, clusts, width, height,templ )=(self.param_inputii[mm] for mm in self.Input_ids+self.Input_idsST)
+        if not 'neld_namess' in self.neld_data:
+            self.neld_data['neld_namess'] = [f'd{str(i).zfill(3)}'  for i in self.neld_data['neld_names']]
+            
         du={mm:nn for mm,nn in zip(self.neld_data['neld_namess'],self.neld_data['neld_names'])}
  
         root=du[root1] 
