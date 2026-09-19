@@ -55,13 +55,13 @@ def get_contraction(vertices,   skeleton_points, alpha=0.5):
     return  (1 - alpha) * vertices + alpha * skeleton_points[ KDTree(skeleton_points).query(vertices )[1] ]
 
 
-import open3d as o3d 
 class mesh_resize():
     def __init__(self,vertices,faces,target_number_of_triangles=6000, ):
         self.vertices=vertices 
         self.faces=faces
         mesh = trimesh.Trimesh(vertices=vertices, faces=faces)
         
+        import open3d as o3d 
 
         o3d_mesh = o3d.geometry.TriangleMesh()
         o3d_mesh.vertices = o3d.utility.Vector3dVector(mesh.vertices)
@@ -172,8 +172,7 @@ class mesh_resize():
         return None
     
  
-import trimesh
-import open3d as o3d 
+import trimesh 
 from scipy.ndimage import gaussian_filter1d
 
 
@@ -183,6 +182,7 @@ class smooth_curvature:
 
     def __init__(self, mesh, iterations=None, sigma=3, radius=None):
 
+        import open3d as o3d 
         # Convert to Open3D
         o3d_mesh = o3d.geometry.TriangleMesh()
         o3d_mesh.vertices = o3d.utility.Vector3dVector(mesh.vertices)
