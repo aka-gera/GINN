@@ -103,13 +103,13 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             path_heads=path_heads_show=['model_0',] if len(path_heads_show)==0 else path_heads_show 
 '''
 
-
         path_file_dir=Path(path_file_dir)
         if not os.path.exists(path_file_dir):
+            file_path_data=file_path_data if file_path_data is not None else os.getcwd()
             ttname=os.path.basename(file_path_org)
             ggname=os.path.basename(os.path.dirname(file_path_org))
-            print('[[[[[---------file_path_dataooo-----------------]]]]]',file_path_data,ggname,ttname)
-            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data')
+            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
+            print('[[[[[---------file_path_data-----0000----]]]]]',file_path_data,'files',ggname,ttname,nam_gen_show)
             path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
         with open(path_file_dir, "rb") as f: 
             loaded_dict = pickle.load(f) 
@@ -227,8 +227,14 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         self.path_heads_show = self.path_heads_show if self.path_heads_show is not None else path_heads
         self.file_path_org=file_path_org
         print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir))
-        if path_file_dir is not None:
-            path_file_dir=Path(path_file_dir)
+        path_file_dir=Path(path_file_dir)
+        if not os.path.exists(path_file_dir):
+            file_path_data=file_path_data if file_path_data is not None else os.getcwd()
+            ttname=os.path.basename(file_path_org)
+            ggname=os.path.basename(os.path.dirname(file_path_org))
+            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
+            print('[[[[[---------file_path_data-----0000----]]]]]',file_path_data,'files',ggname,ttname,nam_gen_show)
+            path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')  
             with open(path_file_dir, "rb") as f: 
                 loaded_dict = pickle.load(f) 
             # path_file_dir=loaded_dict['path_file_dir']
@@ -415,8 +421,13 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
 
                  ):
         print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir))
-        if path_file_dir is not None:
-            path_file_dir=Path(path_file_dir)
+        path_file_dir=Path(path_file_dir)
+        if not os.path.exists(path_file_dir):
+            file_path_data=file_path_data if file_path_data is not None else os.getcwd()
+            ttname=os.path.basename(file_path_org)
+            ggname=os.path.basename(os.path.dirname(file_path_org))
+            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
+            path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
             with open(path_file_dir, "rb") as f: 
                 loaded_dict = pickle.load(f) 
             # path_file_dir=loaded_dict['path_file_dir']
