@@ -40,8 +40,8 @@ paraw={mm:[] for mm in ['dict_param','gdas']}
 from ginn.meshes import (gdas,param_flow,dict_param,dnn_modes,nam,path_dir,
                  nam_gens,dyna,d_nam,file_path_orgb,file_path_datab,
                  file_path_org,file_path_data,nam_gen,path_dict,tname,
-                 obj_org_path,general_nam,
-                 path_file_dir_text,path_file_dir_path,file_path_org_text,
+                 obj_org_path,general_nam,nam_gen,
+                 path_file_dir_text,path_file_dir_path,file_path_org_text,file_path_data_text,
                  github_link,)
 
 
@@ -56,7 +56,7 @@ category=['dsa', ]
 )
  
 dict_param['neld_names_all'] = [f'd{str(i).zfill(3)}' for i in range(20)] 
-dict_param['path_dirs_show']=[f'loss_{mm}' for mm in [1,3,6,16]]
+dict_param['path_dirs_show']=[f'loss_{mm}' for mm in [3,6,16]]
 
 dict_param['navbar']=navbar
 

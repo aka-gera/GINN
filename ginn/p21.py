@@ -19,6 +19,7 @@ from mod.dsa.neld_fun_0.main_0_help import    get_data_all ,get_dict_param
 
 file_path_org=os.getcwd() 
 file_path_data=os.getcwd()  #os.path.join(base_dir,'neld_analysis')#  
+file_path_data_text =f'os.getcwd()'
 file_path_org=os.path.join(os.path.dirname(os.getcwd()),'apps')#
 path_file_dir_path=['data',nam_gen,'path_files.pkl'] 
 file_path_org_text=f'os.path.join(os.path.dirname(os.getcwd()),"apps","files","{gname}","{tname}",)'
@@ -85,7 +86,7 @@ param['dyna param']['param']=dict(
                                   riplet=10,
                                   model_type_index=0,
                                   dnn_mode_index=0,
-                                  path_dir_index=2,
+                                  path_dir_index=1,
                                   ) 
 # param['dyna param']['param']=param_flow
 navbar=dict(
@@ -190,9 +191,9 @@ dict_param=get_dict_param(nam=nam,
 
 
 
-action='train'
-nam=f'{nam_gen}_{action}'
-namt=f'{nam_gen}_test' 
+# action='train'
+# nam=f'{nam_gen}_{action}'
+# namt=f'{nam_gen}_test' 
 
 
 
