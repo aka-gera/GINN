@@ -355,6 +355,8 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         id_name_end=f'{model_type}_{neld_name}_{index}_{file_path}_{model_sufix}_{self.num}'
         id_name_end=safe_id(id_name_end)    
             
+        print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',path_file,)
+        print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',path_train,)
         spine_path = self.path_file[path_train['data_shaft_path']]   
         # spine_path = self.path_file[path_train['dest_spine_path']] 
         iou_path=os.path.join(spine_path , self.txt_spine_iou) 
