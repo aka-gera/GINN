@@ -122,11 +122,11 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         model_sufix_show=params['dnn_modes']
         path_heads_show=params['path_heads_show']
         path_dirs_show=params['path_dirs_show']
-        file_path_org=params['file_path_org']
-        file_path_data=params['file_path_data']
+        # file_path_org=params['file_path_org']
+        # file_path_data=params['file_path_data']
         self.model_sufix=params.get('model_sufix',None)
         self.data_studied=action=params.get('data_studied','test')
-        self.obj_org_path=params.get('obj_org_path',None)
+        # self.obj_org_path=params.get('obj_org_path',None)
         self.file_path_org,self.file_path_data=file_path_org,file_path_data
 
         path_diroi=os.path.join(file_path_org, 'data') 
@@ -143,6 +143,17 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
  
         name_num=0  
         dict_param,gdas,path_dict =[paraws[name_num][mm] for mm in ['dict_param','gdas','path_dict']] 
+
+
+
+        dict_param.update( 
+                            file_path_org=file_path_org,
+                            file_path_data=file_path_data,
+                            path_heads_show=path_heads_show,
+                            path_dirs_show=path_dirs_show,
+                            neld_names_all=neld_names_all, 
+                            )
+
         configs=dict_param['configs']
         nam_gen=paraws[name_num]['nam_gens']['name'][action]
         step_test=paraws[name_num]['nam_gens']['step'][action] 
@@ -163,7 +174,10 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         param = algorithm_param(**dict_param)
 
         dnn_mode=model_sufix
-        neld_data = gdas.part(nam)   
+        neld_data = gdas.part(nam) 
+        print('[[[[[[[[[[[[[[[[[[[99999999999neld_data999999]]]]]]]]]]]]]]]]]]]',neld_data,)
+        neld_data['obj_org_path']=os.path.join(file_path_org,os.path.basename(neld_data['obj_org_path']))  
+        print('[[[[[[[[[[[[[[[[[[[99999999999neld_data999999]]]]]]]]]]]]]]]]]]]',neld_data,)
         mapp = app_run_param(param)
         self.param=mapp.emerge_param()  
         # alg = algorithm(self.param)
@@ -237,23 +251,22 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             print('[[[[[---------file_path_data-----0000----]]]]]',file_path_data,'files',ggname,ttname,nam_gen_show)
             path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
         if os.path.exists(path_file_dir):  
-            with open(path_file_dir, "rb") as f: 
-                loaded_dict = pickle.load(f) 
-            # path_file_dir=loaded_dict['path_file_dir']
-            path_train=loaded_dict['path_train']
-            self.path_file_init=path_file=loaded_dict['path_file']
-            self.path_file_sub_init=loaded_dict['path_file_sub']
-            pinn_dir_data=loaded_dict['pinn_dir_data']
-            neld_data=loaded_dict['neld_data']
-            obj_org_path_dict=loaded_dict['obj_org_path_dict']
-            model_sufix_dic=loaded_dict['model_sufix_dic']
-            self.path_display=loaded_dict['path_display']
-            path_display_dic=loaded_dict['path_display_dic']
-            self.path_heads_show=model_sufix_dic.get('path_heads_show',None)
-            print('[[[[[[[[[[[[[[[[[[[999999999path_file99999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir),path_file)
 
-            print('[[[[[---------path_train-----0000----]]]]]',path_train,path_file,)
-         # self.train_neld_param=loaded_dict['train_neld_param']
+            # with open(path_file_dir, "rb") as f: 
+            #     loaded_dict = pickle.load(f) 
+            # # path_file_dir=loaded_dict['path_file_dir']
+            # path_train=loaded_dict['path_train']
+            # self.path_file_init=path_file=loaded_dict['path_file']
+            # self.path_file_sub_init=loaded_dict['path_file_sub']
+            # pinn_dir_data=loaded_dict['pinn_dir_data']
+            # neld_data=loaded_dict['neld_data']
+            # obj_org_path_dict=loaded_dict['obj_org_path_dict']
+            # model_sufix_dic=loaded_dict['model_sufix_dic']
+            # self.path_display=loaded_dict['path_display']
+            # path_display_dic=loaded_dict['path_display_dic']
+            # self.path_heads_show=model_sufix_dic.get('path_heads_show',None)
+            print('[[[[[[[[[[[[[[[[[[[999999999path_file99999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir),path_file)
+            # self.train_neld_param=loaded_dict['train_neld_param']
             # Default structure
             self.param_dic = {
                 hh: {
@@ -358,8 +371,6 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         id_name_end=f'{model_type}_{neld_name}_{index}_{file_path}_{model_sufix}_{self.num}'
         id_name_end=safe_id(id_name_end)    
             
-        print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',path_file,)
-        print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',path_train,)
         spine_path = self.path_file[path_train['data_shaft_path']]   
         # spine_path = self.path_file[path_train['dest_spine_path']] 
         iou_path=os.path.join(spine_path , self.txt_spine_iou) 
@@ -427,6 +438,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
                     file_path_data=None,  
 
                  ):
+        '''
         print('[[[[[[[[[[[[[[[[[[[99999999999999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir))
         path_file_dir=Path(path_file_dir)
         if not os.path.exists(path_file_dir):
@@ -476,7 +488,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
                                                             'drop_dic_name': None,
                                                         } 
 
- 
+ '''
         if neld_data is not None: 
             neld_names=neld_names if not None else neld_data['neld_names']
             neld_namess=neld_namess if not None else neld_data['neld_namess']
