@@ -178,7 +178,7 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         print('[[[[[[[[[[[pathiii]]]',path_dir)
         if os.path.exists(path_dir):
     
-            print('[[[[[[[[[[[pathiii]]]',path_dir)
+            print('[[[[[[[[[[[pathiii]]]',path_dir,np.loadtxt(path_dir,dtype=str))
             pinn_dir_data_all=[mm for mm in list(np.loadtxt(path_dir,dtype=str)) ]
 
         for ixi,mode_id in enumerate(mode_ids):#data_mode.keys(): #
