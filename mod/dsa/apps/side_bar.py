@@ -241,6 +241,11 @@ def get_text_dash_test(user_input,file_path_org,neld_path_inits,  data_studied,
     code_content = f""" 
 
 import os, sys ,dash  
+
+
+path_dict={kward.get('path_dict')}
+nam_gen='{kward.get('nam_gen')}'
+file_path_data='{kward.get('file_path_data',)}'
 page_title='{kward.get('page_title',)}'
 page_name='{kward.get('page_name')}'
 type='{kward.get('type','page_name')}'
@@ -272,6 +277,7 @@ path_display={path_display}
 path_display_dic={path_display_dic}
 mapp = app_param(
     file_path_org=file_path_org,
+    file_path_data=file_path_data,
     model_sufix=model_sufix,
     path_train=path_train, 
     path_file=path_file,
@@ -289,6 +295,8 @@ mapp = app_param(
     tname=tname,
     params=params,
     paraws=paraws,
+    nam_gen=nam_gen,    
+    path_dict=path_dict,
 )
  
 dash.register_page(
@@ -370,8 +378,9 @@ dash.register_page(
     path="/{page_dir_txt}",
     order=1
 )
- 
-file_path_org={kward.get('file_path_org')} 
+nam_gen='{kward.get('nam_gen')}'
+file_path_data={kward.get('file_path_data')} 
+file_path_org={kward.get('file_path_org')}  
 path_file_dir={kward.get('path_file_dir')} 
 path_dict={kward.get('path_dict')} 
 tname='{kward.get('tname')}'
@@ -388,6 +397,9 @@ dsa_page = DSAPage(
     dnn_modes=dnn_modes,
     tname=tname,
     path_dict=path_dict,
+    file_path_data=file_path_data,
+    file_path_org=file_path_org,
+    nam_gen=nam_gen,
 )
 
 layout = dsa_page.layout
@@ -529,6 +541,10 @@ dash.register_page(
     path="/{page_dir_txt}",
     order=2
 )
+
+
+nam_gen='{kward.get('nam_gen')}'
+file_path_data={kward.get('file_path_data')} 
 file_path_org={kward.get('file_path_org')} 
 path_file_dir={kward.get('path_file_dir')} 
 path_dict={kward.get('path_dict')} 
@@ -546,6 +562,9 @@ dsa_page = DSAPage(
     dnn_modes=dnn_modes,
     tname=tname,
     path_dict=path_dict,
+    file_path_data=file_path_data,
+    file_path_org=file_path_org,
+    nam_gen=nam_gen,
 )
 
 layout = dsa_page.layout_train
@@ -664,6 +683,8 @@ dash.register_page(
     order=0
 )
 
+nam_gen='{kward.get('nam_gen')}'
+file_path_data={kward.get('file_path_data')} 
 file_path_org={kward.get('file_path_org')} 
 path_file_dir={kward.get('path_file_dir')} 
 path_dict={kward.get('path_dict')} 
@@ -681,6 +702,9 @@ dsa_page = DSAPage(
     dnn_modes=dnn_modes,
     tname=tname,
     path_dict=path_dict,
+    file_path_data=file_path_data,
+    file_path_org=file_path_org,
+    nam_gen=nam_gen,
 )
 
 layout = dsa_page.layout_gen

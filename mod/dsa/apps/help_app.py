@@ -56,7 +56,16 @@ from mod.dsa.neld_fun_0.main_0_help import dropdown_callback
 
 class DSAPage(dropdown_callback,algorithm,model_pred):
 
-    def __init__(self,path_heads_show=None,categories=None,path_display=None,dnn_modes=None,nam_gen_show=None,tname=None,path_dict=None):
+    def __init__(self,path_heads_show=None,
+                 categories=None,
+                 path_display=None,
+                 dnn_modes=None,
+                 nam_gen_show=None,
+                 tname=None,
+                 path_dict=None,
+                 file_path_org=None,
+                 file_path_data=None,
+                 nam_gen=None,):
         self.tname=self.pag=tname 
         self.path_dict=path_dict
         dropdown_callback.__init__(self,nam=self.tname)
@@ -70,6 +79,9 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         nam_gen=doc_module.nam_gen
         dnn_mode=doc_module.dnn_mode  
         self.data_studied=action=doc_module.action
+        file_path_org=file_path_org or doc_module.file_path_org
+        file_path_data=file_path_data or doc_module.file_path_data
+        print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen)
 
 
 
@@ -175,11 +187,8 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         configs=dict_param['configs']
 
         path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt')  
-        print('[[[[[[[[[[[pathiii]]]',path_dir)
         if os.path.exists(path_dir):
-    
-            print('[[[[[[[[[[[pathiii]]]',path_dir,np.loadtxt(path_dir,dtype=str))
-            pinn_dir_data_all=['loss_3','loss_16']#[mm for mm in [np.loadtxt(path_dir,dtype=str)]+['None',]]
+            pinn_dir_data_all=[mm for mm in list(np.loadtxt(path_dir,dtype=str)) ]
 
         for ixi,mode_id in enumerate(mode_ids):#data_mode.keys(): #
             data_mode[mode_id].update(dict(
@@ -495,8 +504,6 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         pathdic=param["path_dir"]["param"]=f'{llos}_{weight}'
         pinn_dir_data_all=dict_param['path_dirs_show']
         path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt') 
-      
-        print('[[[[[[[[[[[[[[[[[[[[[[[[[path_dir]]]]]]]]]]]]]]]]]]]]]]]]]]',path_dir)
         if os.path.exists(path_dir):
             pinn_dir_data_all=list(np.loadtxt(path_dir,dtype=str))
 
