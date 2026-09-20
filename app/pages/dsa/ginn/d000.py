@@ -1,6 +1,11 @@
  
 
 import os, sys ,dash  
+
+
+path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.meshes'}
+nam_gen='meshes'
+file_path_data='os.getcwd()'
 page_title='DSA-figs'
 page_name='Figures'
 type='d000'
@@ -32,6 +37,7 @@ path_display=None
 path_display_dic=None
 mapp = app_param(
     file_path_org=file_path_org,
+    file_path_data=file_path_data,
     model_sufix=model_sufix,
     path_train=path_train, 
     path_file=path_file,
@@ -49,6 +55,8 @@ mapp = app_param(
     tname=tname,
     params=params,
     paraws=paraws,
+    nam_gen=nam_gen,    
+    path_dict=path_dict,
 )
  
 dash.register_page(

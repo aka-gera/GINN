@@ -13,8 +13,9 @@ dash.register_page(
     path="/dsa/dsa-ginn-data/dsa-2",
     order=1
 )
- 
-file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",) 
+nam_gen='meshes'
+file_path_data=os.getcwd() 
+file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",)  
 path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'meshes', 'path_files.pkl']) 
 path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.meshes'} 
 tname='ginn'
@@ -31,6 +32,9 @@ dsa_page = DSAPage(
     dnn_modes=dnn_modes,
     tname=tname,
     path_dict=path_dict,
+    file_path_data=file_path_data,
+    file_path_org=file_path_org,
+    nam_gen=nam_gen,
 )
 
 layout = dsa_page.layout
