@@ -685,7 +685,7 @@ class get_files(get_name,get_param):
         self.neld_path_inits= kward.get('neld_path_inits',self.neld_path_inits) 
 
  
-        print('[[[[[[self.data_studied]]]]]]',self.file_path_org,file_path_org,self.data_studied)
+        print('[[[[[[self.data_studied]]]]]]',self.file_path_org,file_path_org,self.data_studied,self.file_path_data)
         print('[[[[[[self.obj_org_path                    ]]]]]]',self.obj_org_path,)
         # self.file_diff=os.path.relpath(self.obj_org_path, os.path.dirname(self.file_path_org)) 
         self.file_diff=os.path.basename(self.obj_org_path)
