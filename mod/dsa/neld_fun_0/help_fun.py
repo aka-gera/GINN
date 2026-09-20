@@ -229,30 +229,30 @@ def app_dict_param(param,nam_gen=None,navbar=None,):
     path_heads_show=param['path_heads_show']['param']
     path_dirs_show=param['path_dirs_show']['param'] 
     neld_names_all=param['neld_names_all']['param'] 
-
-    nam=f'{nam_gen}_{action}'
-    os.makedirs(file_path_data, exist_ok=True)  
-    from mod.dsa.neld_fun_0.main_0_help import get_dict_param 
-    LorenzParam=param['dyna param']['param'] 
-    nam_gens=nam_gen.split('_')
-    d_nam=nam_gen if len(nam_gens)<2 else '_'.join(nam_gens[:2])
-    if d_nam not in dynadic:
-        dynadic[d_nam]=dict(
-                            # param=dict(
-                            #     sigma = LorenzParam['sigma'],
-                            #     rho = LorenzParam['rho'],
-                            #     beta =LorenzParam['beta'], 
-                            #     gamma =LorenzParam['gamma'], 
-                            #     ),
-                        param=LorenzParam,
-                        # fun=gforce.get_force(name=nam_gen,type='force_single'),
-                        # dyn_jacobian=gforce.get_force(name=nam_gen,type='jacobian'),
-                        # obs_jacobian=gforce.get_force(name=nam_gen,type='jacobian'),
-                    )
-    print('[[[[[[[[[[pppp]]]]]]]]]]',d_nam,LorenzParam)
-    configs,dyna,dnn_modes=get_configs(d_nam=d_nam,
-                                       dyna=dynadic,
-                                       **LorenzParam)
+    for acti in [action,'train']:
+        nam=f'{nam_gen}_{acti}'
+        os.makedirs(file_path_data, exist_ok=True)  
+        from mod.dsa.neld_fun_0.main_0_help import get_dict_param 
+        LorenzParam=param['dyna param']['param'] 
+        nam_gens=nam_gen.split('_')
+        d_nam=nam_gen if len(nam_gens)<2 else '_'.join(nam_gens[:2])
+        if d_nam not in dynadic:
+            dynadic[d_nam]=dict(
+                                # param=dict(
+                                #     sigma = LorenzParam['sigma'],
+                                #     rho = LorenzParam['rho'],
+                                #     beta =LorenzParam['beta'], 
+                                #     gamma =LorenzParam['gamma'], 
+                                #     ),
+                            param=LorenzParam,
+                            # fun=gforce.get_force(name=nam_gen,type='force_single'),
+                            # dyn_jacobian=gforce.get_force(name=nam_gen,type='jacobian'),
+                            # obs_jacobian=gforce.get_force(name=nam_gen,type='jacobian'),
+                        )
+        print('[[[[[[[[[[pppp]]]]]]]]]]',d_nam,LorenzParam)
+        configs,dyna,dnn_modes=get_configs(d_nam=d_nam,
+                                        dyna=dynadic,
+                                        **LorenzParam)
 
     dict_param=get_dict_param(nam=nam,
                         n_step = 0,    
