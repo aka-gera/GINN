@@ -493,6 +493,8 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         pathdic=param["path_dir"]["param"]=f'{llos}_{weight}'
         pinn_dir_data_all=dict_param['path_dirs_show']
         path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt') 
+      
+        print('[[[[[[[[[[[[[[[[[[[[[[[[[path_dir]]]]]]]]]]]]]]]]]]]]]]]]]]',path_dir)
         if os.path.exists(path_dir):
             pinn_dir_data_all=list(np.loadtxt(path_dir,dtype=str))
 
