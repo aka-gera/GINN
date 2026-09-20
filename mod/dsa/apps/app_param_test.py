@@ -103,6 +103,16 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             path_heads=path_heads_show=['model_0',] if len(path_heads_show)==0 else path_heads_show 
 '''
 
+        doc_module = importlib.import_module(self.path_dict['doc'])  
+        dict_param=doc_module.dict_param
+        gdas=doc_module.gdas
+        nam_gen=doc_module.nam_gen
+        dnn_mode=doc_module.dnn_mode  
+        self.data_studied=action=doc_module.action
+        file_path_org=file_path_org or doc_module.file_path_org
+        file_path_data=file_path_data or doc_module.file_path_data
+        print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen,file_path_data)
+
 
         path_diroi=os.path.join(file_path_org, 'data') 
         path_file_dir=Path(path_file_dir)
