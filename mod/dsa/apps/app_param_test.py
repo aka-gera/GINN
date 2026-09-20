@@ -74,6 +74,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
                  ):
         self.num=num
         self.tname=tname
+        self.path_dict=path_dict
         '''
 
         # file_path_org=file_path_org.split('//')
