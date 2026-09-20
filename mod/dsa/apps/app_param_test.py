@@ -250,7 +250,8 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             self.path_display=loaded_dict['path_display']
             path_display_dic=loaded_dict['path_display_dic']
             self.path_heads_show=model_sufix_dic.get('path_heads_show',None)
-          
+            print('[[[[[[[[[[[[[[[[[[[999999999path_file99999999]]]]]]]]]]]]]]]]]]]',Path(path_file_dir),path_file)
+
             print('[[[[[---------path_train-----0000----]]]]]',path_train,path_file,)
          # self.train_neld_param=loaded_dict['train_neld_param']
             # Default structure
