@@ -93,6 +93,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen,file_path_data,file_path_org,dict_param)  
         path_diroi=os.path.join(file_path_org, 'data')  
         configs=dict_param['configs']  
+        action='test'
         nam=f'{nam_gen}_{action}'
 
 
