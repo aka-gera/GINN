@@ -235,7 +235,8 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             ggname=os.path.basename(os.path.dirname(file_path_org))
             path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
             print('[[[[[---------file_path_data-----0000----]]]]]',file_path_data,'files',ggname,ttname,nam_gen_show)
-            path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')  
+            path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
+        if not os.path.exists(path_file_dir):  
             with open(path_file_dir, "rb") as f: 
                 loaded_dict = pickle.load(f) 
             # path_file_dir=loaded_dict['path_file_dir']
@@ -429,6 +430,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
             ggname=os.path.basename(os.path.dirname(file_path_org))
             path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
             path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
+        if not os.path.exists(path_file_dir):
             with open(path_file_dir, "rb") as f: 
                 loaded_dict = pickle.load(f) 
             # path_file_dir=loaded_dict['path_file_dir']
