@@ -880,6 +880,7 @@ class get_files(get_name,get_param):
         self.metrics=metrics
         for val in self.metrics_keys:
             self.metrics[val]={} 
+        print('[[[[[[[[]]]pinn_dir_data_all]]]]]',pinn_dir_data_all,self.pinn_dir_data_all)
         self.pinn_dir_data_all=pinn_dir_data_all= list(set(pinn_dir_data_all if pinn_dir_data_all is not None else self.pinn_dir_data_all ))
         self.model_sufix_all= list(set(model_sufix_all if model_sufix_all is not None else self.model_sufix_all  ))
         self.path_heads= list(set(path_heads if path_heads is not None else self.path_heads  )) 
