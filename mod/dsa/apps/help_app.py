@@ -86,11 +86,12 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         self.obj_org_path=dict_param.get('obj_org_path',None)
         self.file_path_org,self.file_path_data=file_path_org,file_path_data
 
-        path_diroi=os.path.join(file_path_org, 'data')  
+        path_diroi=os.path.join(file_path_org, 'data') 
         spath=os.path.join(path_diroi, 'neld_names_all.txt')
         if not os.path.exists(spath):
             ttname=os.path.basename(file_path_org)
             ggname=os.path.basename(os.path.dirname(file_path_org))
+            file_path_data=os.getcwd()
             path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
             spath=os.path.join(path_diroi, 'neld_names_all.txt')
         self.neld_names_all=neld_names_all=np.loadtxt(spath,dtype=str,ndmin=1)

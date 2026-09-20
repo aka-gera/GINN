@@ -134,6 +134,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         if not os.path.exists(spath):
             ttname=os.path.basename(file_path_org)
             ggname=os.path.basename(os.path.dirname(file_path_org))
+            file_path_data=os.getcwd()
             path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
             spath=os.path.join(path_diroi, 'neld_names_all.txt')
         self.neld_names_all=neld_names_all=np.loadtxt(spath,dtype=str,ndmin=1)
