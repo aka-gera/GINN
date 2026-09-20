@@ -1,8 +1,10 @@
 
 
 import sys
-import os 
- 
+import os
+import sys 
+
+import pickle
 # import dash
 from dash import dcc, html, dash_table, Input, Output, State, callback 
 import dash_bootstrap_components as dbc
@@ -13,7 +15,8 @@ import mod.dsa.apps.help_plotly as hp
 from mod.dsa.apps.help_plotly import aka_plot 
 # import density as den
 import plotly.graph_objects as go  
-import pandas as pd 
+import pandas as pd
+import pickle
 from sklearn.metrics import roc_curve, auc
 import pickle
 
@@ -193,7 +196,16 @@ class class_data():
                         with open(os.path.join(path_grap_center_curv), "rb") as file:
                             self.plot_data_center_curv[id_path] = pickle.load(file) 
 
+                    path_grap_center_curv=os.path.join(self.path_file[id_path] ,'cylinder_heatmap.pkl')
+                    if os.path.exists(path_grap_center_curv):
+                        with open(os.path.join(path_grap_center_curv), "rb") as file:
+                            self.plot_data_cylinder_heatmap[id_path] = pickle.load(file) 
+                            
 
+                    path_grap_center_curv=os.path.join(self.path_file[id_path] ,'riplet.pkl')
+                    if os.path.exists(path_grap_center_curv):
+                        with open(os.path.join(path_grap_center_curv), "rb") as file:
+                            self.plot_data_riplet[id_path] = pickle.load(file) 
 
                     for intensity_type in self.inten_file_train :
                         path_grap_center_curv=os.path.join(self.path_file[id_path] ,f'{intensity_type}.txt')
@@ -784,7 +796,8 @@ class class_data():
     def Get_output(self): 
         (nam_gen,path_head,action,model_suf,path,root1,mode,intensity_type,nbin, clusts, width, height,templ )=(self.param_inputii[mm] for mm in self.Input_ids+self.Input_idsST)
         if not 'neld_namess' in self.neld_data:
-            self.neld_data['neld_namess']= [f'd{str(i).zfill(3)}' for i in range(len(neld_names))]         
+            self.neld_data['neld_namess'] = [f'd{str(i).zfill(3)}'  for i in self.neld_data['neld_names']]
+            
         du={mm:nn for mm,nn in zip(self.neld_data['neld_namess'],self.neld_data['neld_names'])}
  
         root=du[root1] 
@@ -953,15 +966,8 @@ class class_data():
                 for val in self.plot_data_center_curv[id_path][clusts][1:]:
                     scatterr.append(val)
                 figure=akp.Plotly_Figure(data= scatterr, layout=self.layout)
-                figure.update_layout(scene=self.scene)
-                
-
-        elif mode in ['heatmap_cylinder','heatmap_cylinder_surface',]:  
-            path_grap_center_curv=os.path.join(self.path_file[id_path] ,'cylinder_heatmap.pkl')
-            if os.path.exists(path_grap_center_curv):
-                with open(os.path.join(path_grap_center_curv), "rb") as file:
-                    self.plot_data_cylinder_heatmap[id_path] = pickle.load(file) 
-                            
+                figure.update_layout(scene=self.scene)   
+        elif mode in ['heatmap_cylinder','heatmap_cylinder_surface',]:
             if self.plot_data_cylinder_heatmap is not None: 
                 *pathc, last = path.split('_') 
                 if mode =='heatmap_cylinder':
@@ -981,14 +987,14 @@ class class_data():
 
 
 
-        elif mode in ['ripley','dijkstra_detail']:
+        elif mode in ['ripley','dijkstra','dijkstra_detail']:
 
-                path_grap_center_curv=os.path.join(self.path_file[id_path] ,'riplet.pkl')
-                if os.path.exists(path_grap_center_curv):
-                    with open(os.path.join(path_grap_center_curv), "rb") as file:
-                        self.plot_data_riplet[id_path] = pickle.load(file) 
- 
-                if mode =='dijkstra_detail':
+                if mode =='dijkstra':
+                    mesh_shaft=self.plot_data_riplet[id_path].others['mesh_shaft']
+                    dij_intensity=self.plot_data_riplet[id_path].others['intensity']
+                    # scatterr.append(hf.plotly_scatter(points=mesh_shaft.vertices, color='yellow', size=5.3, name='skeleton smooth.',opacity=0.5))
+
+                elif mode =='dijkstra_detail':
                     mesh_shaft=self.plot_data_riplet[id_path].others['mesh_shaft']
                     dijk=self.plot_data_riplet[id_path].others['intensity']
                     distance=dijk['distance']
@@ -2348,7 +2354,7 @@ class get_app_param(get_name ):
         metric_name=[]
 
 
-        metric_name.extend(['heatmap_cylinder','heatmap_cylinder_surface','ripley','dijkstra_detail'])
+        metric_name.extend(['heatmap_cylinder','heatmap_cylinder_surface','ripley','dijkstra','dijkstra_detail'])
         metric_name.extend(self.metrics_keys)
         # metric_name.extend(['heatmap_iou','heatmap_iou_union','histogram_iou'])
         self.metric_mapping = {
@@ -2651,12 +2657,9 @@ class get_layout:
         ] 
         self.Input_ids=[f'dropdown_{gvali}_{pag}_param'  for gvali in lst]
         self.Input_idsST=[self.dropdown_mode['id'],
-                          self.dropdown_intensity['id'],
-                          self.hist_slider['id'],
+                          self.dropdown_intensity['id'],self.hist_slider['id'],
                           self.dropdown_cluster['id'],
-                        self.width_slider['id'],
-                        self.height_slider['id'],
-                        self.dropdown_template['id'], ]
+                        self.width_slider['id'],self.height_slider['id'],self.dropdown_template['id'], ]
         self.Input=[Input(mm,'value') for mm in self.Input_ids+self.Input_idsST] 
 
 
@@ -2665,7 +2668,6 @@ class get_layout:
 
     def Get_children(self):  
         svv=[
-            html.Br(),
             html.Label('Histogram Bin Count:', style=self.dropdown_options_style),
             dcc.Slider(
                 id=self.hist_slider['id'],
@@ -2675,6 +2677,7 @@ class get_layout:
                 value=self.hist_slider['value'],
                 marks=self.hist_slider['marks'],
             ),  
+            html.Br(),
             html.Label('Graph Width:', style=self.dropdown_options_style),
             dcc.Slider(
                 id=self.width_slider['id'],
