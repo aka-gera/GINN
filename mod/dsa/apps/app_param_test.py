@@ -108,7 +108,8 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
         if not os.path.exists(path_file_dir):
             ttname=os.path.basename(file_path_org)
             ggname=os.path.basename(os.path.dirname(file_path_org))
-            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data') 
+            print('[[[[[---------file_path_dataooo-----------------]]]]]',file_path_data,ggname,ttname)
+            path_diroi=os.path.join(file_path_data, 'files',ggname,ttname,'data')
             path_file_dir=os.path.join(path_diroi, 'meshes','path_files.pkl')
         with open(path_file_dir, "rb") as f: 
             loaded_dict = pickle.load(f) 
