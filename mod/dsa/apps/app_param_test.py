@@ -68,8 +68,7 @@ class app_param(get_app_param,class_data,get_layout,dropdown_callback,algorithm,
                 path_dict=None,
                 tname=None,
                 params=None,
-                paraws=None,
-                path_dict=None,
+                paraws=None, 
                  num = random.randint(100000000, 9999999999) ,
                  ):
         self.num=num
