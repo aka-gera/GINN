@@ -175,6 +175,7 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         configs=dict_param['configs']
 
         path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt')  
+        print('[[[[[[[[[[[pathiii]]]',path_dir)
         if os.path.exists(path_dir):
             pinn_dir_data_all=[mm for mm in list(np.loadtxt(path_dir,dtype=str)) ]
 
