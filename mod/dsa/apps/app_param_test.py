@@ -31,12 +31,9 @@ from neld_data_all import paraws,params,dnn_mode,path_dict,tname
 
 
 # from mod.dsa.neld_fun_0.app_get_pinn_neld import class_data
+ 
 
-run_module = importlib.import_module(path_dict['app']) 
-class_data=run_module.class_data
-get_app_param=run_module.get_app_param
-get_layout=run_module.get_layout
-
+from mod.dsa.neld_fun_0.app_get_pinn_neld import class_data,get_app_param,get_layout
 import random
 from pathlib import Path 
  

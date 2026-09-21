@@ -94,6 +94,7 @@ def get_dict_param(nam='meshes',
                     head_navbar=None,
 				    wrap_method='alpha_wrap',
                     pre_portion=None,
+                    param_flows=None,
                     ):
     path_heads_show=path_heads_show if path_heads_show is not None else [ 
                 'dnn_GINN_SM00000_LOC_AUG',
@@ -188,6 +189,7 @@ def get_dict_param(nam='meshes',
         head_navbar=head_navbar, 
 		wrap_method=wrap_method,
         pre_portion=pre_portion,
+        param_flows=param_flows,
     )
 
     

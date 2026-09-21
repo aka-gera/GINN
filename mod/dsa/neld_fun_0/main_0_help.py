@@ -245,6 +245,7 @@ def get_dict_param(file_path_org=None,
                     file_path_data=None,
                     dyna=None,
                     navbar=None,
+                    param_flows=None,
                     ):
     path_heads_show=path_heads_show if path_heads_show is not None else [ 
                 'dnn_GINN_SM00000_LOC_AUG', 
@@ -329,6 +330,7 @@ def get_dict_param(file_path_org=None,
         data_studied=data_studied,
         neld_names_all=neld_names_all,
         dyna=dyna,
+        param_flows=param_flows,
     )
 
     
