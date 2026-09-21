@@ -1354,9 +1354,9 @@ class class_data():
 
                     grp.graph_Lrip=go.Scatter(
                             x=rall,
-                            y=grp.ripp/(rripp)-1,
+                            y=rall*np.sqrt(grp.ripp/(rripp))-rall,
                             mode='lines+markers',
-                            name='L(r)-1,  K-fun'
+                            name='L(r)-r,  K-fun'
                         )
 
 
@@ -1372,9 +1372,9 @@ class class_data():
 
                     grp.graph_Lrip_area=go.Scatter(
                             x=rall,
-                            y=grp.ripp/(rrippp)-1,
+                            y=rall*np.sqrt(grp.ripp/(rrippp))-rall,
                             mode='lines+markers',
-                            name='L(r)-1,   Area'
+                            name='L(r)-r,   Area'
                         )
                     
 
@@ -1383,9 +1383,9 @@ class class_data():
 
                     grp.graph_monte_ratio=go.Scatter(
                             x=rall,
-                            y=rripp/(rrippp)-1,
+                            y=rall*np.sqrt(rripp/(rrippp))-rall,
                             mode='lines+markers',
-                            name='csr K-fun/csr Area -1,'
+                            name='r (csr K-fun/csr Area)^(1/2) -r,'
                         )
 
 
