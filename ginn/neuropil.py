@@ -127,7 +127,7 @@ path_dict.update({'doc':f'ginn.{nam_gen}'})
  
 obj_list=[1,2]
 # obj_list=[62,63]
-# obj_list=[0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 14, 16, 19, 20, 21, 22, 30, 31, 32, 59, 62, 63, 40, 113, ] 
+obj_list=[0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 14, 16, 19, 20, 21, 22, 30, 31, 32, 59, 62, 63, 40, 113, ] 
 
 neld_names = [f'd{str(i).zfill(3)}' for i in obj_list]  
 neld_namess = [f'd{str(i).zfill(3)}' for i in range(len(neld_names))] 
