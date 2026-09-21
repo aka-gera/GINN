@@ -5,9 +5,9 @@ sys.path.append(os.path.abspath(os.getcwd()))
 import dash_bootstrap_components as dbc
 from dash import Dash, html,callback
 import webbrowser, threading
-from mod.dsa.apps.side_bar import header_navbar,param_toggle_all,fun_toggle_all
+from mod.kalman.lorenz.apps.side_bar import header_navbar,param_toggle_all,fun_toggle_all
 
-forbidden_page=('/dsa/dsa-ginn-data/',)
+forbidden_page=('/kalman/kalman-lorenz-data/',)
 forbidden_endswith='None'
 forbidden_endswith = None if forbidden_endswith in (None, 'None') else forbidden_endswith
 head_navbar={'Kalman': 'kalman', 'DSA': 'dsa'} 

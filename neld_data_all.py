@@ -45,6 +45,13 @@ from ginn.meshes import (gdas,param_flow,dict_param,dnn_modes,nam,path_dir,
                  github_link,)
 
 
+from kalman.lorenz.lorenz_noise_t0 import (gdas,param_flow,dict_param,dnn_modes,nam,path_dir,
+                 nam_gens,dyna,d_nam,file_path_orgb,file_path_datab,
+                 file_path_org,file_path_data,nam_gen,path_dict,tname,
+                 obj_org_path,general_nam,nam_gen,
+                 path_file_dir_text,path_file_dir_path,file_path_org_text,file_path_data_text,
+                 github_link,)
+
 navbar=dict(
 head_navbar={
             "Kalman": "kalman",

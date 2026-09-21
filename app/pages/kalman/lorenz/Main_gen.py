@@ -4,27 +4,27 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from mod.dsa.apps.help_app import DSAPage
+from mod.kalman.lorenz.apps.help_app import DSAPage
 
 dash.register_page(
     __name__,
     title="DSA",
     name="Generation",
-    path="/dsa/dsa-ginn-data/dsa-gen",
+    path="/kalman/kalman-lorenz-data/kalman-gen",
     order=0
 )
 
-nam_gen='meshes'
+nam_gen='lorenz_0_we10_wn100_sp100_pt0'
 file_path_data=os.getcwd() 
-file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",) 
-path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'meshes', 'path_files.pkl']) 
-path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.meshes'} 
+file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","kalman","lorenz",) 
+path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","kalman","lorenz",),*['data', 'lorenz_0_we10_wn100_sp100_pt0', 'path_files.pkl']) 
+path_dict={'run': 'mod.kalman.lorenz.kal_0.help_kal', 'fun': 'mod.kalman.lorenz.kal_0.help_fun', 'app': 'mod.kalman.lorenz.neld_fun_0.app_get_pinn_neld', 'doc': 'kalman.lorenz.lorenz_noise_t0'} 
 drop_name='generation'
-path_heads_show= ['dnn_GINN__SM00000_LOC_AUG']
+path_heads_show= ['rnn_KAL__lorenz_0_we10_wn100_sp100_pt0', 'tfm_KAL__lorenz_0_we10_wn100_sp100_pt0', 'ekf_KAL__lorenz_0_we10_wn100_sp100_pt0', 'jos_KAL__lorenz_0_we10_wn100_sp100_pt0']
 categories= ['dsa']
-path_display= ['dest_shaft_path']  
-dnn_modes= ['DNN_3', 'DNN_2']
-tname='ginn'
+path_display= ['dest_hmod_path']  
+dnn_modes= ['sd3_od3', 'sd3_od2']
+tname='lorenz'
 # Instantiate page
 dsa_page = DSAPage( 
     path_heads_show=path_heads_show,

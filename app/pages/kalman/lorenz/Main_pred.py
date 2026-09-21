@@ -4,27 +4,26 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from mod.dsa.apps.help_app import DSAPage
+from mod.kalman.lorenz.apps.help_app import DSAPage
 
 dash.register_page(
     __name__,
     title="DSA",
-    name="Generation",
-    path="/dsa/dsa-ginn-data/dsa-gen",
-    order=0
+    name="Prediction",
+    path="/kalman/kalman-lorenz-data/kalman-2",
+    order=1
 )
-
-nam_gen='meshes'
+nam_gen='lorenz_0_we10_wn100_sp100_pt0'
 file_path_data=os.getcwd() 
-file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",) 
-path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","dsa","ginn",),*['data', 'meshes', 'path_files.pkl']) 
-path_dict={'run': 'mod.dsa.neld_fun_0.help_kal', 'fun': 'mod.dsa.neld_fun_0.help_fun', 'app': 'mod.dsa.neld_fun_0.app_get_pinn_neld', 'doc': 'ginn.meshes'} 
-drop_name='generation'
-path_heads_show= ['dnn_GINN__SM00000_LOC_AUG']
+file_path_org=os.path.join(os.path.dirname(os.getcwd()),"apps","files","kalman","lorenz",)  
+path_file_dir=os.path.join(os.path.join(os.path.dirname(os.getcwd()),"apps","files","kalman","lorenz",),*['data', 'lorenz_0_we10_wn100_sp100_pt0', 'path_files.pkl']) 
+path_dict={'run': 'mod.kalman.lorenz.kal_0.help_kal', 'fun': 'mod.kalman.lorenz.kal_0.help_fun', 'app': 'mod.kalman.lorenz.neld_fun_0.app_get_pinn_neld', 'doc': 'kalman.lorenz.lorenz_noise_t0'} 
+tname='lorenz'
+drop_name='prediction'
+path_heads_show= ['rnn_KAL__lorenz_0_we10_wn100_sp100_pt0', 'tfm_KAL__lorenz_0_we10_wn100_sp100_pt0', 'ekf_KAL__lorenz_0_we10_wn100_sp100_pt0', 'jos_KAL__lorenz_0_we10_wn100_sp100_pt0']
 categories= ['dsa']
-path_display= ['dest_shaft_path']  
-dnn_modes= ['DNN_3', 'DNN_2']
-tname='ginn'
+path_display= ['dest_hmod_path']  
+dnn_modes= ['sd3_od3', 'sd3_od2']
 # Instantiate page
 dsa_page = DSAPage( 
     path_heads_show=path_heads_show,
@@ -38,9 +37,9 @@ dsa_page = DSAPage(
     nam_gen=nam_gen,
 )
 
-layout = dsa_page.layout_gen
-   
-type='gen'
+layout = dsa_page.layout
+ 
+type=None
 
 out, inp, st, prevent = dsa_page.param_upload_dropdown_all(drop_name)
 @callback(*out,*inp,*st,prevent_initial_call=prevent)
@@ -55,38 +54,58 @@ def create_parameter_dropdowns(store_data):
     return [] if store_data is None else dsa_page.create_parameter_dropdowns(store_data,drop_name)
 
 
+'''
+out, inp, st, prevent = dsa_page.param_toggle_all()
 
+@callback(
+    *out,
+    *inp,
+    *st,
+    prevent_initial_call=prevent
+)
+def toggle_all(*args):
+    return dsa_page.toggle_all(args)
+'''
 
+for gval in list(set(dsa_page.param["param_input"]["param"])):
+    out, inp, st, prevent = dsa_page.param_toggle_single(gval)
 
-out, inp, prevent = dsa_page.param_upload_all(type)
+    @callback(
+        out,
+        inp,
+        st,
+        prevent_initial_call=prevent
+    )
+    def toggle_single(n_clicks, is_open, gval=gval):
+        return dsa_page.toggle_single(n_clicks, is_open)
+type='pred'
+
+out, inp, prevent = dsa_page.param_upload()
+
 @callback(
     *out,
     *inp,
     # *st,
     prevent_initial_call=prevent
-) 
-def callback_upload_gen(*args):
+)
+def callback_upload(*args):
     return dsa_page.upload(args,type)
+out, inp, st, prevent = dsa_page.param_run_algorithm()
 
-
-    
-out, inp, st, prevent = dsa_page.param_run_algorithm_all(type)
 @callback(
     out,
     inp,
     st,
     prevent_initial_call=prevent
 )
-def callback_run_algorithm_gen(n_clicks, store_data):
+def callback_run_algorithm(n_clicks, store_data):
     if not n_clicks or not store_data:
         raise dash.exceptions.PreventUpdate
-    return dsa_page.run_algorithm_gen(store_data) 
-
-    
+    return dsa_page.run_algorithm(store_data)
 
 
 
-out, inp, st, prevent = dsa_page.toggle_parameters_collapse(type=type)
+out, inp, st, prevent = dsa_page.toggle_parameters_collapse()
 @callback(
     out,
     inp,
@@ -98,7 +117,9 @@ def toggle_parameters_collapse(n_clicks, is_open):
         return not is_open
     return is_open
 
- 
+
+
+type=None
 
 out, inp, st, prevent = dsa_page.toggle_result_collapse(type=type)
 @callback(
@@ -111,7 +132,5 @@ def toggle_result_collapse(n_clicks, is_open):
     if n_clicks:
         return not is_open
     return is_open
-
-
 
 
