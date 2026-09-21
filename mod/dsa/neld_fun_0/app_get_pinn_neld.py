@@ -23,7 +23,7 @@ from mod.dsa.neld_fun_0.get_path import get_files ,safe_id ,get_name
 from mod.dsa.dend_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
 from mod.dsa.dend_fun_0.help_save_iou import iou_train
 from mod.dsa.dend_fun_0.density import get_chi
-
+import importlib
 
 def log_ratio(values, eps=1e-12):
     values = np.asarray(values)
@@ -250,8 +250,59 @@ class class_data():
 
 
 
-    def get_data(self,model_sufix,data_studied,index,neld_data=None,nam_gen=None,):
-        obj_org_path=None if nam_gen is None else os.path.join(self.file_path_data,nam_gen) 
+
+    def get_neld_data(self,data_studied,nam_gen):
+        doc_module = importlib.import_module(f'ginn.{nam_gen}')  
+        # dict_param=doc_module.dict_param
+        gdas=doc_module.gdas
+        # nam_gen=doc_module.nam_gen 
+        # self.data_studied=action=doc_module.action
+        self.file_path_org=doc_module.file_path_org
+        self.file_path_data= doc_module.file_path_data
+        self.obj_org_path=obj_org_path=doc_module.obj_org_path
+
+         
+        nam=f'{nam_gen}_{data_studied}'
+        self.neld_data = gdas.part(nam)   
+        print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen,self.neld_data)  
+        # print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen,file_path_data,file_path_org,dict_param,neld_data)  
+        self.neld_names=self.neld_data['neld_names']
+
+    def get_data(self,model_sufix,data_studied,index,neld_data,nam_gen=None,):
+
+
+
+
+        '''
+
+        doc_module = importlib.import_module(f'ginn.{nam_gen}')  
+        dict_param=doc_module.dict_param
+        gdas=doc_module.gdas
+        nam_gen=doc_module.nam_gen 
+        # self.data_studied=action=doc_module.action
+        file_path_org=doc_module.file_path_org
+        file_path_data= doc_module.file_path_data
+
+        
+        model_sufix_show=doc_module.dnn_modes
+        path_heads_show=doc_module.path_heads_show
+        path_dirs_show=doc_module.path_dirs_show 
+        # self.model_sufix=doc_module.model_sufix
+        # self.data_studied=action=doc_module.data_studied
+        self.obj_org_path=obj_org_path=doc_module.obj_org_path
+        nam=f'{nam_gen}_{data_studied}'
+        neld_data = gdas.part(nam)   
+        print('[[[[[[[[[[callback_file]]nam_gen        ]]]]]]]]',nam_gen,file_path_data,file_path_org,dict_param,neld_data)  
+       
+
+'''
+
+
+        obj_org_path=self.obj_org_path
+
+
+
+        # obj_org_path=None if nam_gen is None else os.path.join(self.file_path_data,nam_gen) 
         path_train=self.path_train
         # if neld_data is not None:
         self.neld_path_inits= neld_data['neld_path_inits']
@@ -923,12 +974,19 @@ class class_data():
     # def Get_output(self, path_head,model_suf,path,mode,  width, height ,templ,inbin,ndex=None,get_return=True,hide_button_tf=True): 
     def Get_output(self): 
         (nam_gen,path_head,action,model_suf,path,root1,mode,intensity_type,nbin, clusts, width, height,templ )=(self.param_inputii[mm] for mm in self.Input_ids+self.Input_idsST)
+
+
+        self.get_neld_data(
+                    nam_gen=nam_gen,  
+                    data_studied=action, 
+                    ) 
+         
+
         if not 'neld_namess' in self.neld_data:
             self.neld_data['neld_namess']= [f'd{str(i).zfill(3)}' for i in range(len(neld_names))]         
         du={mm:nn for mm,nn in zip(self.neld_data['neld_namess'],self.neld_data['neld_names'])}
  
-        root=du[root1] 
-        index =0# self.param_inputii['index']
+        root=du[root1]  
         get_return = self.param_inputii['get_return']
         hide_button_tf = self.param_inputii['hide_button']
         kik={ke:va for va,ke in enumerate(self.neld_names)}
@@ -959,17 +1017,19 @@ class class_data():
                   )
                 )
         self.get_gen_path(  
-            **self.pari,
+            # **self.pari,
 
                 # path_train, 
                 )
+
         self.get_data(
-                    nam_gen=nam_gen,
-                    neld_data=self.neld_data,
+                    nam_gen=nam_gen, 
                     model_sufix=model_suf,
-                    data_studied=self.data_studied,
-                    index=index, 
+                    data_studied=action,
+                    index=index,
+                    neld_data=self.neld_data,
                     ) 
+        
         print('---------',true_keys,path,mode,neldd,path_head,'---inte',intensity_type,'===',model_suf,self.model_sufix) 
         neld_name=self.neld_name 
         bcouleur=self.bcouleur
@@ -1294,9 +1354,9 @@ class class_data():
 
                     grp.graph_Lrip=go.Scatter(
                             x=rall,
-                            y=rall*np.sqrt(grp.ripp/(rripp))-rall,
+                            y=grp.ripp/(rripp)-1,
                             mode='lines+markers',
-                            name='L(r)-r,  K-fun'
+                            name='L(r)-1,  K-fun'
                         )
 
 
@@ -1312,9 +1372,9 @@ class class_data():
 
                     grp.graph_Lrip_area=go.Scatter(
                             x=rall,
-                            y=rall*np.sqrt(grp.ripp/(rrippp))-rall,
+                            y=grp.ripp/(rrippp)-1,
                             mode='lines+markers',
-                            name='L(r)-r,   Area'
+                            name='L(r)-1,   Area'
                         )
                     
 
@@ -1323,9 +1383,9 @@ class class_data():
 
                     grp.graph_monte_ratio=go.Scatter(
                             x=rall,
-                            y=rall*np.sqrt(rripp/(rrippp))-rall,
+                            y=rripp/(rrippp)-1,
                             mode='lines+markers',
-                            name='r(csr K-fun/csr Area)^(1/2) -r,'
+                            name='csr K-fun/csr Area -1,'
                         )
 
 
