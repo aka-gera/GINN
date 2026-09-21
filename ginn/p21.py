@@ -74,7 +74,7 @@ path_heads_show=['dnn_GINN__SM00000_LOC_AUG',]
 param={mm:{} for mm in ['action','file_path_org','file_path_data','path_heads_show','path_dirs_show','dyna param','neld_names_all']}
 
  
-path_dirs_show=[f'loss_{mm}' for mm in [3,16] ]
+path_dirs_show=[f'loss_{mm}' for mm in [6,16] ]
 param["action"]["param"]=action
 param['file_path_org']['param']=file_path_org
 param['file_path_data']['param']=file_path_data
