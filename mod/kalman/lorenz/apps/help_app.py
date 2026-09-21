@@ -189,6 +189,13 @@ class DSAPage(dropdown_callback,algorithm,model_pred):
         path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt')  
         if os.path.exists(path_dir):
             pinn_dir_data_all=[mm for mm in list(np.loadtxt(path_dir,dtype=str)) ]
+        else:
+            ttname=os.path.basename(file_path_org)
+            ggname=os.path.basename(os.path.dirname(file_path_org))
+            file_path_data=os.getcwd()
+            path_dir=os.path.join(file_path_data, 'files',ggname,ttname,'data','pinn_dir_data_all.txt') 
+        path_dir=os.path.join(self.file_path_org, 'data','pinn_dir_data_all.txt')  
+
 
         for ixi,mode_id in enumerate(mode_ids):#data_mode.keys(): #
             # data_mode[mode_id].update(dict(
